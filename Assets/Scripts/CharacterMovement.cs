@@ -6,7 +6,8 @@ public class CharacterMovement : MonoBehaviour
 
     public float maxSpeed = 2.0f;
     public bool facingRight = true;
-    public float moveSpeed;
+    public float moveSpeedX;
+    public float moveSpeedY;
 
     public bool doubleJump = false;
     public int maxJumpCount = 5;
@@ -52,7 +53,8 @@ public class CharacterMovement : MonoBehaviour
         grounded =
             Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Grounded", grounded);
-        anim.SetFloat("MoveSpeed", moveSpeed);
+        anim.SetFloat("MoveSpeed", moveSpeedX);
+        anim.SetFloat("MoveSpeedY", moveSpeedY);
 
         // Si se esta sobre el suelo se inicializan los estados de salto
         if (grounded)
@@ -62,11 +64,11 @@ public class CharacterMovement : MonoBehaviour
         }
 
         // En funcion del movimiento se cambia la orientacion del personaje
-        if (moveSpeed > 0.0f && !facingRight)
+        if (moveSpeedX > 0.0f && !facingRight)
         {
             Flip();
         }
-        else if (moveSpeed < 0.0f && facingRight)
+        else if (moveSpeedX < 0.0f && facingRight)
         {
             Flip();
         }
@@ -76,16 +78,15 @@ public class CharacterMovement : MonoBehaviour
         {
             anim.SetBool("Turning", turning);
             rigidbody.velocity =
-            new Vector2(moveSpeed * maxSpeed, rigidbody.velocity.y);
+            new Vector2(moveSpeedX * maxSpeed, rigidbody.velocity.y);
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Se captura la direccion y velocidad del movimiento horizontal
-        moveSpeed = Input.GetAxis("Horizontal");
-
+        moveSpeedX = Input.GetAxis("Horizontal");
+        moveSpeedY = Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0;
         // Si el personaje esta en el suelo o si kedan saltos permisibles aun y se presiona saltar
         if ((grounded || jumpCount < maxJumpCount) && Input.GetButtonDown("Jump"))
         {

@@ -17,7 +17,7 @@ public class CameraTargetAutoMove : MonoBehaviour
     {
         transform.position =
             new Vector3(
-                parentTransform.position.x + characterMovement.moveSpeed * maxDistanceOnX,
+                parentTransform.position.x + characterMovement.moveSpeedX * maxDistanceOnX,
                 transform.position.y, transform.position.z);
     }
 }

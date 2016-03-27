@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 022cb97148cbde4439cee66a66609eed
-timeCreated: 1458845645
+timeCreated: 1459080356
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -182,22 +182,22 @@ TextureImporter:
     21300350: 31613_155
     21300352: 31613_156
     21300354: 31613_157
-    21300356: 31613_158
-    21300358: 31613_159
-    21300360: 31613_160
-    21300362: 31613_161
+    21300356: run_right_aiming_up_4
+    21300358: run_right_aiming_up_5
+    21300360: run_right_aiming_up_6
+    21300362: run_right_aiming_up_7
     21300364: 31613_162
     21300366: 31613_163
     21300368: 31613_164
     21300370: 31613_165
-    21300372: 31613_166
-    21300374: 31613_167
-    21300376: 31613_168
-    21300378: 31613_169
+    21300372: run_right_aiming_up_8
+    21300374: run_right_aiming_up_9
+    21300376: run_right_aiming_up_0
+    21300378: run_right_aiming_up_1
     21300380: 31613_170
     21300382: 31613_171
-    21300384: 31613_172
-    21300386: 31613_173
+    21300384: run_right_aiming_up_2
+    21300386: run_right_aiming_up_3
     21300388: 31613_174
     21300390: 31613_175
     21300392: 31613_176
@@ -2172,7 +2172,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_158
+    - name: run_right_aiming_up_4
       rect:
         serializedVersion: 2
         x: 244
@@ -2182,27 +2182,27 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_159
+    - name: run_right_aiming_up_5
       rect:
         serializedVersion: 2
-        x: 298
+        x: 291
         y: 1148
-        width: 28
+        width: 35
         height: 48
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_160
+    - name: run_right_aiming_up_6
       rect:
         serializedVersion: 2
-        x: 347
+        x: 342
         y: 1148
-        width: 30
+        width: 35
         height: 48
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_161
+    - name: run_right_aiming_up_7
       rect:
         serializedVersion: 2
         x: 395
@@ -2252,7 +2252,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_166
+    - name: run_right_aiming_up_8
       rect:
         serializedVersion: 2
         x: 243
@@ -2262,7 +2262,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_167
+    - name: run_right_aiming_up_9
       rect:
         serializedVersion: 2
         x: 294
@@ -2272,22 +2272,22 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_168
+    - name: run_right_aiming_up_0
       rect:
         serializedVersion: 2
-        x: 348
+        x: 340
         y: 1098
-        width: 27
+        width: 35
         height: 48
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_169
+    - name: run_right_aiming_up_1
       rect:
         serializedVersion: 2
-        x: 396
+        x: 393
         y: 1098
-        width: 31
+        width: 34
         height: 48
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -2312,17 +2312,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_172
+    - name: run_right_aiming_up_2
       rect:
         serializedVersion: 2
-        x: 245
+        x: 244
         y: 1048
-        width: 34
+        width: 35
         height: 48
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_173
+    - name: run_right_aiming_up_3
       rect:
         serializedVersion: 2
         x: 294
