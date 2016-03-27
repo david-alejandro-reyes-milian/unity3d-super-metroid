@@ -22,16 +22,29 @@ public class CharacterMovement : MonoBehaviour
     public float turnWaitTime = .2f;
     public float turnTime = 0;
     public bool turning = false;
-    public bool shootingFront = false;
 
 
-    public float swordSpeed = 600.0f;
+
+    public float shotSpeed = 600.0f;
     public Transform shotSpawn;
-    public Rigidbody swordPrefab;
+    public Rigidbody shotPrefab;
+    Rigidbody clone;
 
     private Animator anim;
 
-    Rigidbody clone;
+
+    public bool shootingFront = false;
+    public int aimingDirection = 0;
+    // Estados en que puede estar el cañon
+    private const int aimingIdleConst = 0;
+    private const int aimingUpConst = 1;
+    private const int aimingUpFrontConst = 2;
+    private const int aimingFrontConst = 3;
+    private const int aimingDownFrontConst = 4;
+    private const int aimingDownConst = 5;
+
+    // Weapon spawns:
+    GameObject canonIdleSpawn, canonAimingFrontSpawn, canonAimingHalfUpSpawn;
 
     void Awake()
     {
@@ -45,21 +58,24 @@ public class CharacterMovement : MonoBehaviour
         shotSpawn = GameObject.Find("ShotSpawn").transform;
         // Objeto que manipula las animaciones
         anim = GameObject.Find("/Character/CharacterSprite").GetComponent<Animator>();
-        // Contiene todas las partes del caracter excepto el Sprite
+
+        // Inicializando posiciones de cañon
+        canonIdleSpawn = GameObject.Find("/Character/Weapon/CanonIdleSpawn");
+        canonAimingFrontSpawn = GameObject.Find("/Character/Weapon/CanonAimingFrontSpawn");
+        canonAimingHalfUpSpawn = GameObject.Find("/Character/Weapon/CanonAimingHalfUpSpawn");
     }
 
     void FixedUpdate()
     {
+        anim.SetFloat("MoveSpeed", moveSpeedX);
+        anim.SetFloat("MoveSpeedY", moveSpeedY);
+
+        HandleAimingState();
+
         // Se chekea si se toca el suelo y se actualizan los estados de la animacion
         grounded =
             Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Grounded", grounded);
-        anim.SetFloat("MoveSpeed", moveSpeedX);
-        anim.SetFloat("MoveSpeedY", moveSpeedY);
-
-        shootingFront = (anim.GetCurrentAnimatorStateInfo(0).IsName("run_right_aiming_front"));
-        anim.SetBool("ShootingFront", shootingFront);
-
         // Si se esta sobre el suelo se inicializan los estados de salto
         if (grounded)
         {
@@ -84,6 +100,46 @@ public class CharacterMovement : MonoBehaviour
             rigidbody.velocity =
             new Vector2(moveSpeedX * maxSpeed, rigidbody.velocity.y);
         }
+    }
+
+
+    void HandleAimingState()
+    {
+        GetAimingDirection();
+
+        shootingFront = (anim.GetCurrentAnimatorStateInfo(0).IsName("run_right_aiming_front"));
+        anim.SetBool("ShootingFront", shootingFront);
+        anim.SetInteger("AimingDirection", aimingDirection);
+        if (aimingDirection == aimingIdleConst)
+        {
+            shotSpawn.transform.position = canonIdleSpawn.transform.position;
+            shotSpawn.transform.rotation = canonIdleSpawn.transform.rotation;
+        }
+        if (aimingDirection == aimingUpFrontConst)
+        {
+            shotSpawn.transform.position = canonAimingHalfUpSpawn.transform.position;
+            shotSpawn.transform.rotation = canonAimingHalfUpSpawn.transform.rotation;
+        }
+        else if (aimingDirection == aimingFrontConst)
+        {
+            shotSpawn.transform.position = canonAimingFrontSpawn.transform.position;
+            shotSpawn.transform.rotation = canonAimingFrontSpawn.transform.rotation;
+        }
+    }
+
+    void SetShotSpawnPosition()
+    {
+
+    }
+    void GetAimingDirection()
+    {
+        if (moveSpeedX == 0 && moveSpeedY == 0) aimingDirection = 0;//idle
+        else if (moveSpeedX == 0 && moveSpeedY > 0) aimingDirection = 1;//up
+        else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY > 0) aimingDirection = 2;//up-right 45 grados
+        else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY == 0) aimingDirection = 3;//front
+        else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY < 0) aimingDirection = 4;//down-right 315 grados 
+        else if (moveSpeedX == 0 && moveSpeedY < 0) aimingDirection = 5;//down 270 grados
+        print("aimingDirection " + aimingDirection);
     }
 
     void Update()
@@ -138,8 +194,8 @@ public class CharacterMovement : MonoBehaviour
     void Attack()
     {
         anim.SetBool("ShootingFront", true);
-        //clone =
-        //    Instantiate(swordPrefab, shotSpawn.position, shotSpawn.rotation) as Rigidbody;
-        //clone.AddForce(shotSpawn.transform.right * swordSpeed);
+        clone =
+            Instantiate(shotPrefab, shotSpawn.position, shotSpawn.rotation) as Rigidbody;
+        clone.AddForce(shotSpawn.transform.right * shotSpeed);
     }
 }
