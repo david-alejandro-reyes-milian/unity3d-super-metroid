@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 022cb97148cbde4439cee66a66609eed
-timeCreated: 1459080356
+timeCreated: 1459080977
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -202,23 +202,23 @@ TextureImporter:
     21300390: 31613_175
     21300392: 31613_176
     21300394: 31613_177
-    21300396: 31613_178
-    21300398: 31613_179
-    21300400: 31613_180
+    21300396: run_right_aiming_front_3
+    21300398: run_right_aiming_front_4
+    21300400: run_right_aiming_front_5
     21300402: 31613_181
-    21300404: 31613_182
+    21300404: run_right_aiming_front_6
     21300406: 31613_183
     21300408: 31613_184
     21300410: 31613_185
     21300412: 31613_186
-    21300414: 31613_187
-    21300416: 31613_188
-    21300418: 31613_189
-    21300420: 31613_190
+    21300414: run_right_aiming_front_7
+    21300416: run_right_aiming_front_8
+    21300418: run_right_aiming_front_9
+    21300420: run_right_aiming_front_0
     21300422: 31613_191
     21300424: 31613_192
-    21300426: 31613_193
-    21300428: 31613_194
+    21300426: run_right_aiming_front_1
+    21300428: run_right_aiming_front_2
     21300430: 31613_195
     21300432: 31613_196
     21300434: 31613_197
@@ -2372,7 +2372,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_178
+    - name: run_right_aiming_front_3
       rect:
         serializedVersion: 2
         x: 243
@@ -2382,7 +2382,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_179
+    - name: run_right_aiming_front_4
       rect:
         serializedVersion: 2
         x: 293
@@ -2392,22 +2392,22 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_180
+    - name: run_right_aiming_front_5
       rect:
         serializedVersion: 2
-        x: 347
+        x: 340
         y: 1001
-        width: 30
+        width: 37
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_182
+    - name: run_right_aiming_front_6
       rect:
         serializedVersion: 2
-        x: 396
+        x: 393
         y: 1000
-        width: 32
+        width: 35
         height: 44
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -2452,7 +2452,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_187
+    - name: run_right_aiming_front_7
       rect:
         serializedVersion: 2
         x: 244
@@ -2462,7 +2462,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_188
+    - name: run_right_aiming_front_8
       rect:
         serializedVersion: 2
         x: 292
@@ -2472,7 +2472,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_189
+    - name: run_right_aiming_front_9
       rect:
         serializedVersion: 2
         x: 343
@@ -2482,12 +2482,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_190
+    - name: run_right_aiming_front_0
       rect:
         serializedVersion: 2
-        x: 397
+        x: 390
         y: 951
-        width: 29
+        width: 36
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -2512,22 +2512,22 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_193
+    - name: run_right_aiming_front_1
       rect:
         serializedVersion: 2
-        x: 245
+        x: 241
         y: 901
-        width: 33
+        width: 37
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_194
+    - name: run_right_aiming_front_2
       rect:
         serializedVersion: 2
-        x: 294
+        x: 292
         y: 901
-        width: 36
+        width: 38
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}

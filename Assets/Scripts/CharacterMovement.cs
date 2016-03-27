@@ -22,6 +22,7 @@ public class CharacterMovement : MonoBehaviour
     public float turnWaitTime = .2f;
     public float turnTime = 0;
     public bool turning = false;
+    public bool shootingFront = false;
 
 
     public float swordSpeed = 600.0f;
@@ -56,6 +57,9 @@ public class CharacterMovement : MonoBehaviour
         anim.SetFloat("MoveSpeed", moveSpeedX);
         anim.SetFloat("MoveSpeedY", moveSpeedY);
 
+        shootingFront = (anim.GetCurrentAnimatorStateInfo(0).IsName("run_right_aiming_front"));
+        anim.SetBool("ShootingFront", shootingFront);
+
         // Si se esta sobre el suelo se inicializan los estados de salto
         if (grounded)
         {
@@ -87,14 +91,8 @@ public class CharacterMovement : MonoBehaviour
         // Se captura la direccion y velocidad del movimiento horizontal
         moveSpeedX = Input.GetAxis("Horizontal");
         moveSpeedY = Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0;
-        // Si el personaje esta en el suelo o si kedan saltos permisibles aun y se presiona saltar
-        if ((grounded || jumpCount < maxJumpCount) && Input.GetButtonDown("Jump"))
-        {
-            // Se annade una fuerza vertical (Salto)
-            rigidbody.AddForce(new Vector2(0.0f, jumpSpeed));
-            // Se actualiza la cantidad de saltos
-            if (jumpCount < maxJumpCount && !grounded) jumpCount++;
-        }
+
+        HandleJump();
 
         // Se actualiza el estado del giro
         if (turning)
@@ -112,6 +110,18 @@ public class CharacterMovement : MonoBehaviour
             Attack();
         }
     }
+    void HandleJump()
+    {
+        // Si el personaje esta en el suelo o si kedan saltos permisibles aun y se presiona saltar
+        if ((grounded || jumpCount < maxJumpCount) && Input.GetButtonDown("Jump"))
+        {
+            // Se annade una fuerza vertical (Salto)
+            rigidbody.AddForce(new Vector2(0.0f, jumpSpeed));
+            // Se actualiza la cantidad de saltos
+            if (jumpCount < maxJumpCount && !grounded) jumpCount++;
+
+        }
+    }
 
     void Flip()
     {
@@ -127,6 +137,7 @@ public class CharacterMovement : MonoBehaviour
     }
     void Attack()
     {
+        anim.SetBool("ShootingFront", true);
         //clone =
         //    Instantiate(swordPrefab, shotSpawn.position, shotSpawn.rotation) as Rigidbody;
         //clone.AddForce(shotSpawn.transform.right * swordSpeed);
