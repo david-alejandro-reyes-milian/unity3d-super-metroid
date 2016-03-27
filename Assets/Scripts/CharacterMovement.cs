@@ -31,7 +31,6 @@ public class CharacterMovement : MonoBehaviour
 
     Rigidbody clone;
 
-    // Wow
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
