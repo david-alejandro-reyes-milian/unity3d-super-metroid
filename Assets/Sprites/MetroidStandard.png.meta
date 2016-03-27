@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 022cb97148cbde4439cee66a66609eed
-timeCreated: 1459080977
+timeCreated: 1459100518
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -223,24 +223,24 @@ TextureImporter:
     21300432: 31613_196
     21300434: 31613_197
     21300436: 31613_198
-    21300438: 31613_199
-    21300440: 31613_200
-    21300442: 31613_201
-    21300444: 31613_202
+    21300438: run_right_aiming_down_2
+    21300440: run_right_aiming_down_3
+    21300442: run_right_aiming_down_4
+    21300444: run_right_aiming_down_5
     21300446: 31613_203
     21300448: 31613_204
     21300450: 31613_205
     21300452: 31613_206
-    21300454: 31613_207
-    21300456: 31613_208
-    21300458: 31613_209
-    21300460: 31613_210
+    21300454: run_right_aiming_down_6
+    21300456: run_right_aiming_down_7
+    21300458: run_right_aiming_down_8
+    21300460: run_right_aiming_down_9
     21300462: 31613_211
     21300464: 31613_212
     21300466: 31613_213
     21300468: 31613_214
-    21300470: 31613_215
-    21300472: 31613_216
+    21300470: run_right_aiming_down_0
+    21300472: run_right_aiming_down_1
     21300474: 31613_217
     21300476: 31613_218
     21300478: 31613_219
@@ -2572,17 +2572,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_199
+    - name: run_right_aiming_down_2
       rect:
         serializedVersion: 2
-        x: 245
+        x: 242
         y: 851
-        width: 33
+        width: 36
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_200
+    - name: run_right_aiming_down_3
       rect:
         serializedVersion: 2
         x: 294
@@ -2592,22 +2592,22 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_201
+    - name: run_right_aiming_down_4
       rect:
         serializedVersion: 2
-        x: 345
+        x: 344
         y: 851
-        width: 34
+        width: 35
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_202
+    - name: run_right_aiming_down_5
       rect:
         serializedVersion: 2
-        x: 398
+        x: 390
         y: 851
-        width: 27
+        width: 35
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -2652,42 +2652,42 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_207
+    - name: run_right_aiming_down_6
       rect:
         serializedVersion: 2
-        x: 247
+        x: 241
         y: 801
-        width: 29
+        width: 35
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_208
+    - name: run_right_aiming_down_7
       rect:
         serializedVersion: 2
-        x: 295
-        y: 801
-        width: 33
-        height: 43
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_209
-      rect:
-        serializedVersion: 2
-        x: 344
+        x: 292
         y: 801
         width: 36
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_210
+    - name: run_right_aiming_down_8
       rect:
         serializedVersion: 2
-        x: 394
+        x: 343
         y: 801
-        width: 35
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: run_right_aiming_down_9
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 801
+        width: 36
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -2732,22 +2732,22 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_215
+    - name: run_right_aiming_down_0
       rect:
         serializedVersion: 2
-        x: 249
+        x: 241
         y: 751
-        width: 26
+        width: 34
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_216
+    - name: run_right_aiming_down_1
       rect:
         serializedVersion: 2
-        x: 297
+        x: 293
         y: 751
-        width: 30
+        width: 34
         height: 43
       alignment: 0
       pivot: {x: .5, y: .5}

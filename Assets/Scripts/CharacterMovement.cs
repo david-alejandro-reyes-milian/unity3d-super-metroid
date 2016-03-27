@@ -33,7 +33,6 @@ public class CharacterMovement : MonoBehaviour
     private Animator anim;
 
 
-    public bool shootingFront = false;
     public int aimingDirection = 0;
     // Estados en que puede estar el cañon
     private const int aimingIdleConst = 0;
@@ -44,8 +43,11 @@ public class CharacterMovement : MonoBehaviour
     private const int aimingDownConst = 5;
 
     // Weapon spawns:
-    GameObject canonIdleSpawn, canonAimingFrontSpawn, canonAimingHalfUpSpawn;
+    GameObject canonIdleSpawn, canonAimingFrontSpawn, canonAimingUpFrontSpawn, canonAimingDownFrontSpawn;
 
+
+    //Sounds 
+    AudioClip baseShotSound;
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -62,12 +64,16 @@ public class CharacterMovement : MonoBehaviour
         // Inicializando posiciones de cañon
         canonIdleSpawn = GameObject.Find("/Character/Weapon/CanonIdleSpawn");
         canonAimingFrontSpawn = GameObject.Find("/Character/Weapon/CanonAimingFrontSpawn");
-        canonAimingHalfUpSpawn = GameObject.Find("/Character/Weapon/CanonAimingHalfUpSpawn");
+        canonAimingUpFrontSpawn = GameObject.Find("/Character/Weapon/CanonAimingUpFrontSpawn");
+        canonAimingDownFrontSpawn = GameObject.Find("/Character/Weapon/CanonAimingDownFrontSpawn");
+
+        // Cargando sonidos
+        baseShotSound = Resources.Load("Sounds/BaseShot", typeof(AudioClip)) as AudioClip;
     }
 
     void FixedUpdate()
     {
-        anim.SetFloat("MoveSpeed", moveSpeedX);
+        anim.SetFloat("MoveSpeedX", moveSpeedX);
         anim.SetFloat("MoveSpeedY", moveSpeedY);
 
         HandleAimingState();
@@ -105,11 +111,6 @@ public class CharacterMovement : MonoBehaviour
 
     void HandleAimingState()
     {
-        GetAimingDirection();
-
-        shootingFront = (anim.GetCurrentAnimatorStateInfo(0).IsName("run_right_aiming_front"));
-        anim.SetBool("ShootingFront", shootingFront);
-        anim.SetInteger("AimingDirection", aimingDirection);
         if (aimingDirection == aimingIdleConst)
         {
             shotSpawn.transform.position = canonIdleSpawn.transform.position;
@@ -117,13 +118,18 @@ public class CharacterMovement : MonoBehaviour
         }
         if (aimingDirection == aimingUpFrontConst)
         {
-            shotSpawn.transform.position = canonAimingHalfUpSpawn.transform.position;
-            shotSpawn.transform.rotation = canonAimingHalfUpSpawn.transform.rotation;
+            shotSpawn.transform.position = canonAimingUpFrontSpawn.transform.position;
+            shotSpawn.transform.rotation = canonAimingUpFrontSpawn.transform.rotation;
         }
         else if (aimingDirection == aimingFrontConst)
         {
             shotSpawn.transform.position = canonAimingFrontSpawn.transform.position;
             shotSpawn.transform.rotation = canonAimingFrontSpawn.transform.rotation;
+        }
+        else if (aimingDirection == aimingDownFrontConst)
+        {
+            shotSpawn.transform.position = canonAimingDownFrontSpawn.transform.position;
+            shotSpawn.transform.rotation = canonAimingDownFrontSpawn.transform.rotation;
         }
     }
 
@@ -139,7 +145,7 @@ public class CharacterMovement : MonoBehaviour
         else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY == 0) aimingDirection = 3;//front
         else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY < 0) aimingDirection = 4;//down-right 315 grados 
         else if (moveSpeedX == 0 && moveSpeedY < 0) aimingDirection = 5;//down 270 grados
-        print("aimingDirection " + aimingDirection);
+        anim.SetInteger("AimingDirection", aimingDirection);
     }
 
     void Update()
@@ -149,6 +155,7 @@ public class CharacterMovement : MonoBehaviour
         moveSpeedY = Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0;
 
         HandleJump();
+        GetAimingDirection();
 
         // Se actualiza el estado del giro
         if (turning)
@@ -193,9 +200,12 @@ public class CharacterMovement : MonoBehaviour
     }
     void Attack()
     {
-        anim.SetBool("ShootingFront", true);
+        // Sonido del disparo
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(baseShotSound, .1f);
+
         clone =
             Instantiate(shotPrefab, shotSpawn.position, shotSpawn.rotation) as Rigidbody;
         clone.AddForce(shotSpawn.transform.right * shotSpeed);
     }
+
 }
