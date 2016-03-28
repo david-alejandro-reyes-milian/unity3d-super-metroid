@@ -3,33 +3,39 @@ using System.Collections;
 
 public class CharacterMovement : MonoBehaviour
 {
-
+    // Movement
     public float maxSpeed = 2.0f;
     public bool facingRight = true;
     public float moveSpeedX;
     public float moveSpeedY;
 
+    // Jumps
     public bool doubleJump = false;
     public int maxJumpCount = 5;
     public int jumpCount = 0;
     public float jumpSpeed = 200;
+
+    // Physics
     private Rigidbody rigidbody;
     public Transform groundCheck;
     public float groundRadius = 0.001f;
     public LayerMask whatIsGround;
     public bool grounded = false;
 
+    // Turning
     public float turnWaitTime = .2f;
     public float turnTime = 0;
     public bool turning = false;
 
     private Animator anim;
 
+    // Shotting
     public float shotSpeed = 600.0f;
+    public float shotWaitTime = .5f;
+    public float lastShotTime = 0;
     private GameObject currentShotSpawn;
     public Rigidbody shotPrefab;
     Rigidbody clone;
-
     public int aimingDirection = 0;
     // Estados en que puede estar el cañon
     private const int aimingIdleConst = 0;
@@ -38,14 +44,13 @@ public class CharacterMovement : MonoBehaviour
     private const int aimingFrontConst = 3;
     private const int aimingDownFrontConst = 4;
     private const int aimingDownConst = 5;
-
     // Weapon spawns:
     GameObject canonIdleSpawn, canonAimingFrontSpawn, canonAimingUpFrontSpawn,
-        canonAimingDownFrontSpawn, canonAimingUp;
-
+        canonAimingDownFrontSpawn, canonAimingUp, canonAimingDownSpawn;
 
     //Sounds 
     AudioClip baseShotSound;
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -74,7 +79,7 @@ public class CharacterMovement : MonoBehaviour
         anim.SetFloat("MoveSpeedX", moveSpeedX);
         anim.SetFloat("MoveSpeedY", moveSpeedY);
 
-        HandleAimingState();
+        HandleAimingDirection();
 
         // Se chekea si se toca el suelo y se actualizan los estados de la animacion
         grounded =
@@ -107,48 +112,57 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
-    void HandleAimingState()
+    void HandleAimingDirection()
     {
-        GetAimingDirection();
-        if (aimingDirection == aimingIdleConst)
+        if (moveSpeedX == 0 && moveSpeedY == 0)
         {
+            aimingDirection = aimingIdleConst;//idle
             currentShotSpawn = canonIdleSpawn;
         }
-        if (aimingDirection == aimingUpFrontConst)
+        else if (moveSpeedX == 0 && moveSpeedY > 0)
         {
-            currentShotSpawn = canonAimingUpFrontSpawn;
-        }
-        else if (aimingDirection == aimingFrontConst)
-        {
-            currentShotSpawn = canonAimingFrontSpawn;
-        }
-        else if (aimingDirection == aimingDownFrontConst)
-        {
-            currentShotSpawn = canonAimingDownFrontSpawn;
-        }
-        else if (aimingDirection == aimingUpConst)
-        {
+            aimingDirection = aimingUpConst;//up
             currentShotSpawn = canonAimingUp;
         }
-    }
-
-    void GetAimingDirection()
-    {
-        if (moveSpeedX == 0 && moveSpeedY == 0) aimingDirection = 0;//idle
-        else if (moveSpeedX == 0 && moveSpeedY > 0) aimingDirection = 1;//up
-        else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY > 0) aimingDirection = 2;//up-right 45 grados
-        else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY == 0) aimingDirection = 3;//front
-        else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY < 0) aimingDirection = 4;//down-right 315 grados 
-        else if (moveSpeedX == 0 && moveSpeedY < 0) aimingDirection = 5;//down 270 grados
+        else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY > 0)
+        {
+            aimingDirection = aimingUpFrontConst;//up-right 45 grados
+            currentShotSpawn = canonAimingUpFrontSpawn;
+        }
+        else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY == 0)
+        {
+            aimingDirection = aimingFrontConst;//front
+            currentShotSpawn = canonAimingFrontSpawn;
+        }
+        else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY < 0)
+        {
+            aimingDirection = aimingDownFrontConst;//down-right 315 grados 
+            currentShotSpawn = canonAimingDownFrontSpawn;
+        }
+        else if (moveSpeedX == 0 && moveSpeedY < 0)
+        {
+            aimingDirection = aimingDownConst;//down 270 grados
+            currentShotSpawn = canonAimingDownSpawn;
+        }
 
         // Apuntando arriba-delante
         if (Input.GetKey(KeyCode.R))
-            aimingDirection = 2;
+        {
+            aimingDirection = aimingUpFrontConst;
+            currentShotSpawn = canonAimingUpFrontSpawn;
+        }
         // Apuntando debajo-delante
         if (Input.GetKey(KeyCode.F))
-            aimingDirection = 4;
+        {
+            aimingDirection = aimingDownFrontConst;
+            currentShotSpawn = canonAimingDownFrontSpawn;
+        }
 
         anim.SetInteger("AimingDirection", aimingDirection);
+
+        // Si cambia el objetivo de disparo se deshabilita el disparo al frente
+        if (aimingDirection != aimingDownFrontConst)
+            anim.SetBool("ShootingFront", false);
     }
 
     void Update()
@@ -170,9 +184,18 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        // Se controla la frecuencia de disparos
+        if (lastShotTime >= shotWaitTime)
         {
-            Attack();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                lastShotTime = 0;
+                Attack();
+            }
+        }
+        else
+        {
+            lastShotTime += Time.deltaTime;
         }
 
 
@@ -187,6 +210,8 @@ public class CharacterMovement : MonoBehaviour
             // Se actualiza la cantidad de saltos
             if (jumpCount < maxJumpCount && !grounded) jumpCount++;
 
+            // Al saltar se deshabilita el disparo hacia el frente
+            anim.SetBool("ShootingFront", false);
         }
     }
 
@@ -201,11 +226,12 @@ public class CharacterMovement : MonoBehaviour
         facingRight = !facingRight;
         anim.SetBool("FacingRight", facingRight);
         anim.SetBool("Turning", turning);
+        anim.SetBool("ShootingFront", false);
     }
     void Attack()
     {
         // Sonido del disparo
-        Camera.main.GetComponent<AudioSource>().PlayOneShot(baseShotSound, .1f);
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(baseShotSound, .5f);
 
         clone =
             Instantiate(shotPrefab, currentShotSpawn.transform.position, currentShotSpawn.transform.rotation) as Rigidbody;
@@ -213,6 +239,10 @@ public class CharacterMovement : MonoBehaviour
         clone.velocity = rigidbody.velocity;
         // Luego se annade la velocidad del disparo
         clone.AddForce(currentShotSpawn.transform.right * shotSpeed);
+
+        // Si al atacar se apunta al frente se habilita la bandera
+        if (aimingDirection == aimingFrontConst)
+            anim.SetBool("ShootingFront", true);
     }
 
 }
