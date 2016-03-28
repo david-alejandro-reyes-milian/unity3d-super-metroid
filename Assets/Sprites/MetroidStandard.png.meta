@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 022cb97148cbde4439cee66a66609eed
-timeCreated: 1459181638
+timeCreated: 1459194222
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -101,8 +101,8 @@ TextureImporter:
     21300188: 31613_74
     21300190: 31613_75
     21300192: 31613_76
-    21300194: 31613_77
-    21300196: 31613_78
+    21300194: right_jump_aiming_up_front_0
+    21300196: right_jump_aiming_up_front_1
     21300198: 31613_79
     21300200: 31613_80
     21300202: 31613_81
@@ -110,8 +110,8 @@ TextureImporter:
     21300206: 31613_83
     21300208: 31613_84
     21300210: 31613_85
-    21300212: 31613_86
-    21300214: 31613_87
+    21300212: right_jump_aiming_down_front_0
+    21300214: right_jump_aiming_down_front_1
     21300216: 31613_88
     21300218: 31613_89
     21300220: 31613_90
@@ -602,226 +602,6 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2309
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_2
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 2292
-        width: 23
-        height: 50
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_3
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 2295
-        width: 23
-        height: 47
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2259
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_5
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 2224
-        width: 23
-        height: 47
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_6
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 2262
-        width: 26
-        height: 43
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_7
-      rect:
-        serializedVersion: 2
-        x: 151
-        y: 2262
-        width: 21
-        height: 43
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_8
-      rect:
-        serializedVersion: 2
-        x: 190
-        y: 2266
-        width: 23
-        height: 35
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_9
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 2266
-        width: 24
-        height: 35
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_10
-      rect:
-        serializedVersion: 2
-        x: 261
-        y: 2266
-        width: 21
-        height: 35
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_11
-      rect:
-        serializedVersion: 2
-        x: 301
-        y: 2262
-        width: 21
-        height: 43
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_12
-      rect:
-        serializedVersion: 2
-        x: 349
-        y: 2262
-        width: 26
-        height: 43
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_13
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 2225
-        width: 23
-        height: 47
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_14
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2209
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_15
-      rect:
-        serializedVersion: 2
-        x: 92
-        y: 2216
-        width: 40
-        height: 35
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_16
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 2218
-        width: 32
-        height: 31
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_17
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 2216
-        width: 22
-        height: 35
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_18
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 2216
-        width: 24
-        height: 35
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_19
-      rect:
-        serializedVersion: 2
-        x: 261
-        y: 2216
-        width: 22
-        height: 35
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_20
-      rect:
-        serializedVersion: 2
-        x: 296
-        y: 2217
-        width: 31
-        height: 32
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_21
-      rect:
-        serializedVersion: 2
-        x: 342
-        y: 2216
-        width: 40
-        height: 35
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_22
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2159
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: unkown0
       rect:
         serializedVersion: 2
@@ -899,16 +679,6 @@ TextureImporter:
         y: 2165
         width: 19
         height: 37
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_31
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2109
-        width: 24
-        height: 48
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -992,16 +762,6 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_40
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2059
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: 31613_41
       rect:
         serializedVersion: 2
@@ -1082,16 +842,6 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_49
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2009
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: 31613_50
       rect:
         serializedVersion: 2
@@ -1111,16 +861,6 @@ TextureImporter:
         height: 54
       alignment: 9
       pivot: {x: .600593567, y: .405856669}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_52
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1959
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: 31613_53
       rect:
@@ -1162,16 +902,6 @@ TextureImporter:
       alignment: 9
       pivot: {x: .400273323, y: .466257721}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_57
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1909
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: 31613_58
       rect:
         serializedVersion: 2
@@ -1179,86 +909,6 @@ TextureImporter:
         y: 1904
         width: 18
         height: 43
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_59
-      rect:
-        serializedVersion: 2
-        x: 403
-        y: 1904
-        width: 18
-        height: 43
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_60
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1859
-        width: 24
-        height: 48
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_61
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 1856
-        width: 28
-        height: 38
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_62
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 1857
-        width: 26
-        height: 36
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_63
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 1856
-        width: 27
-        height: 38
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_64
-      rect:
-        serializedVersion: 2
-        x: 298
-        y: 1856
-        width: 27
-        height: 38
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_65
-      rect:
-        serializedVersion: 2
-        x: 349
-        y: 1857
-        width: 26
-        height: 36
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_66
-      rect:
-        serializedVersion: 2
-        x: 398
-        y: 1857
-        width: 28
-        height: 37
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1362,7 +1012,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_77
+    - name: right_jump_aiming_up_front_0
       rect:
         serializedVersion: 2
         x: 249
@@ -1372,7 +1022,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_78
+    - name: right_jump_aiming_up_front_1
       rect:
         serializedVersion: 2
         x: 298
@@ -1452,7 +1102,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_86
+    - name: right_jump_aiming_down_front_0
       rect:
         serializedVersion: 2
         x: 249
@@ -1462,7 +1112,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_87
+    - name: right_jump_aiming_down_front_1
       rect:
         serializedVersion: 2
         x: 299
