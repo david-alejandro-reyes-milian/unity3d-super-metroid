@@ -48,7 +48,7 @@ public class CharacterMovement : MonoBehaviour
     private const int aimingDownConst = 5;
     // Weapon spawns:
     GameObject canonIdleSpawn, canonAimingFrontSpawn, canonAimingUpFrontSpawn,
-        canonAimingDownFrontSpawn, canonAimingUp, canonAimingDownSpawn;
+        canonAimingDownFrontSpawn, canonAimingUp;
     GameObject canonIdleSpawnAir, canonAimingFrontSpawnAir, canonAimingUpFrontSpawnAir,
        canonAimingDownFrontSpawnAir, canonAimingUpAir, canonAimingDownSpawnAir;
 
@@ -77,6 +77,7 @@ public class CharacterMovement : MonoBehaviour
         canonAimingUpFrontSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingUpFrontSpawn");
         canonAimingDownFrontSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingDownFrontSpawn");
         canonAimingUpAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingUp");
+        canonAimingDownSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingDownSpawn");
 
         // Cargando sonidos
         baseShotSound = Resources.Load("Sounds/BaseShot", typeof(AudioClip)) as AudioClip;
@@ -147,7 +148,7 @@ public class CharacterMovement : MonoBehaviour
         else if (moveSpeedX == 0 && moveSpeedY < 0)
         {
             aimingDirection = aimingDownConst;//down 270 grados
-            currentShotSpawn = shootingOnAir ? canonAimingDownSpawnAir : canonAimingDownSpawn;
+            currentShotSpawn = canonAimingDownSpawnAir;
         }
 
         // Apuntando arriba-delante
@@ -243,6 +244,9 @@ public class CharacterMovement : MonoBehaviour
     }
     void Attack()
     {
+        // En el suelo no se puede disparar hacia abajo
+        if (aimingDirection == aimingDownConst && grounded) return;
+
         // Sonido del disparo
         Camera.main.GetComponent<AudioSource>().PlayOneShot(baseShotSound, .5f);
 

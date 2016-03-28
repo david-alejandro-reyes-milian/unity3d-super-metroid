@@ -6,7 +6,7 @@ public class CameraTargetAutoMove : MonoBehaviour
 
     private CharacterMovement characterMovement;
     private Transform parentTransform;
-    public float maxDistanceOnX = 1.5f;
+    public float maxDistanceOnX = 1f;
     void Awake()
     {
         characterMovement = GameObject.Find("Character").GetComponent<CharacterMovement>();
