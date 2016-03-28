@@ -13,7 +13,7 @@ public class CharacterMovement : MonoBehaviour
     public bool doubleJump = false;
     public int maxJumpCount = 5;
     public int jumpCount = 0;
-    public float jumpSpeed = 200;
+    public float jumpSpeed = 15;
 
     // Physics
     private Rigidbody rigidbody;
@@ -21,6 +21,7 @@ public class CharacterMovement : MonoBehaviour
     public float groundRadius = 0.001f;
     public LayerMask whatIsGround;
     public bool grounded = false;
+    public bool goingUp = false;
 
     // Turning
     public float turnWaitTime = .2f;
@@ -78,6 +79,7 @@ public class CharacterMovement : MonoBehaviour
     {
         anim.SetFloat("MoveSpeedX", moveSpeedX);
         anim.SetFloat("MoveSpeedY", moveSpeedY);
+        anim.SetBool("GoingUp", goingUp);
 
         HandleAimingDirection();
 
@@ -93,14 +95,8 @@ public class CharacterMovement : MonoBehaviour
         }
 
         // En funcion del movimiento se cambia la orientacion del personaje
-        if (moveSpeedX > 0.0f && !facingRight)
-        {
-            Flip();
-        }
-        else if (moveSpeedX < 0.0f && facingRight)
-        {
-            Flip();
-        }
+        if (moveSpeedX > 0.0f && !facingRight) { Flip(); }
+        else if (moveSpeedX < 0.0f && facingRight) { Flip(); }
 
         // Mientras ocurre el giro del personaje no ocurre movimiento
         if (!turning)
@@ -202,16 +198,22 @@ public class CharacterMovement : MonoBehaviour
     }
     void HandleJump()
     {
-        // Si el personaje esta en el suelo o si kedan saltos permisibles aun y se presiona saltar
-        if ((grounded || jumpCount < maxJumpCount) && Input.GetButtonDown("Jump"))
-        {
-            // Se annade una fuerza vertical (Salto)
-            rigidbody.AddForce(new Vector2(0.0f, jumpSpeed));
-            // Se actualiza la cantidad de saltos
-            if (jumpCount < maxJumpCount && !grounded) jumpCount++;
+        // Se captura la direccion del salto para reaccionar en caida libre y animaciones
+        if (rigidbody.velocity.y >= 0.5f) goingUp = true;
+        else goingUp = false;
 
-            // Al saltar se deshabilita el disparo hacia el frente
-            anim.SetBool("ShootingFront", false);
+        if (Input.GetButtonDown("Jump"))
+        {
+            // Si el personaje esta en el suelo o si kedan saltos permisibles aun y se presiona saltar
+            if ((grounded || jumpCount < maxJumpCount))
+            {
+                // Se annade una fuerza vertical (Salto)
+                rigidbody.AddForce(new Vector2(0.0f, jumpSpeed));
+                // Se actualiza la cantidad de saltos
+                if (jumpCount < maxJumpCount && !grounded) jumpCount++;
+                // Al saltar se deshabilita el disparo hacia el frente
+                anim.SetBool("ShootingFront", false);
+            }
         }
     }
 

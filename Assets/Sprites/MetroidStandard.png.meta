@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 022cb97148cbde4439cee66a66609eed
-timeCreated: 1459111186
+timeCreated: 1459181638
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -51,19 +51,19 @@ TextureImporter:
     21300088: left_cross_prejump_2
     21300090: left_cross_prejump_1
     21300092: left_cross_prejump_0
-    21300094: 31613_27
-    21300096: 31613_28
-    21300098: 31613_29
-    21300100: 31613_30
+    21300094: right_jump_up_0
+    21300096: right_jump_up_1
+    21300098: right_jump_up_2
+    21300100: right_jump_down_1
     21300102: 31613_31
     21300104: left_normal_jump_down_3
     21300106: left_normal_jump_down_2
     21300108: left_normal_jump_down_1
     21300110: left_normal_jump_down_0
-    21300112: right_cross_prejump_0
-    21300114: right_cross_prejump_1
+    21300112: right_jump_down_2
+    21300114: right_jump_down_0
     21300116: right_cross_prejump_2
-    21300118: 31613_39
+    21300118: right_jump_down_3
     21300120: 31613_40
     21300122: 31613_41
     21300124: normal_left_jump_10
@@ -862,7 +862,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_27
+    - name: right_jump_up_0
       rect:
         serializedVersion: 2
         x: 252
@@ -872,7 +872,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_28
+    - name: right_jump_up_1
       rect:
         serializedVersion: 2
         x: 303
@@ -882,7 +882,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_29
+    - name: right_jump_up_2
       rect:
         serializedVersion: 2
         x: 350
@@ -892,7 +892,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_30
+    - name: right_jump_down_1
       rect:
         serializedVersion: 2
         x: 402
@@ -952,7 +952,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: right_cross_prejump_0
+    - name: right_jump_down_2
       rect:
         serializedVersion: 2
         x: 253
@@ -962,7 +962,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: right_cross_prejump_1
+    - name: right_jump_down_0
       rect:
         serializedVersion: 2
         x: 302
@@ -982,7 +982,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_39
+    - name: right_jump_down_3
       rect:
         serializedVersion: 2
         x: 401
