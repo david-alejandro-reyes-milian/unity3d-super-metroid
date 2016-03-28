@@ -34,6 +34,7 @@ public class CharacterMovement : MonoBehaviour
     public float shotSpeed = 600.0f;
     public float shotWaitTime = .5f;
     public float lastShotTime = 0;
+    public bool shootingOnAir = false;
     private GameObject currentShotSpawn;
     public Rigidbody shotPrefab;
     Rigidbody clone;
@@ -48,6 +49,8 @@ public class CharacterMovement : MonoBehaviour
     // Weapon spawns:
     GameObject canonIdleSpawn, canonAimingFrontSpawn, canonAimingUpFrontSpawn,
         canonAimingDownFrontSpawn, canonAimingUp, canonAimingDownSpawn;
+    GameObject canonIdleSpawnAir, canonAimingFrontSpawnAir, canonAimingUpFrontSpawnAir,
+       canonAimingDownFrontSpawnAir, canonAimingUpAir, canonAimingDownSpawnAir;
 
     //Sounds 
     AudioClip baseShotSound;
@@ -65,11 +68,15 @@ public class CharacterMovement : MonoBehaviour
         anim = GameObject.Find("/Character/CharacterSprite").GetComponent<Animator>();
 
         // Inicializando posiciones de cañon
-        canonIdleSpawn = GameObject.Find("/Character/Weapon/CanonIdleSpawn");
-        canonAimingFrontSpawn = GameObject.Find("/Character/Weapon/CanonAimingFrontSpawn");
-        canonAimingUpFrontSpawn = GameObject.Find("/Character/Weapon/CanonAimingUpFrontSpawn");
-        canonAimingDownFrontSpawn = GameObject.Find("/Character/Weapon/CanonAimingDownFrontSpawn");
-        canonAimingUp = GameObject.Find("/Character/Weapon/CanonAimingUp");
+        canonIdleSpawn = GameObject.Find("/Character/CanonAiming/CanonIdleSpawn");
+        canonAimingFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingFrontSpawn");
+        canonAimingUpFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingUpFrontSpawn");
+        canonAimingDownFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingDownFrontSpawn");
+        canonAimingUp = GameObject.Find("/Character/CanonAiming/CanonAimingUp");
+        canonAimingFrontSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingFrontSpawn");
+        canonAimingUpFrontSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingUpFrontSpawn");
+        canonAimingDownFrontSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingDownFrontSpawn");
+        canonAimingUpAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingUp");
 
         // Cargando sonidos
         baseShotSound = Resources.Load("Sounds/BaseShot", typeof(AudioClip)) as AudioClip;
@@ -87,12 +94,14 @@ public class CharacterMovement : MonoBehaviour
         grounded =
             Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Grounded", grounded);
-        // Si se esta sobre el suelo se inicializan los estados de salto
+        // Si se esta sobre el suelo se inicializan los estados de salto y disparos en el aire
         if (grounded)
         {
             doubleJump = false;
             jumpCount = 0;
+            shootingOnAir = false;
         }
+        anim.SetBool("ShootingOnAir", shootingOnAir);
 
         // En funcion del movimiento se cambia la orientacion del personaje
         if (moveSpeedX > 0.0f && !facingRight) { Flip(); }
@@ -118,43 +127,44 @@ public class CharacterMovement : MonoBehaviour
         else if (moveSpeedX == 0 && moveSpeedY > 0)
         {
             aimingDirection = aimingUpConst;//up
-            currentShotSpawn = canonAimingUp;
+            currentShotSpawn = shootingOnAir ? canonAimingUpAir : canonAimingUp;
         }
         else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY > 0)
         {
             aimingDirection = aimingUpFrontConst;//up-right 45 grados
-            currentShotSpawn = canonAimingUpFrontSpawn;
+            currentShotSpawn = shootingOnAir ? canonAimingUpFrontSpawnAir : canonAimingUpFrontSpawn;
         }
         else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY == 0)
         {
             aimingDirection = aimingFrontConst;//front
-            currentShotSpawn = canonAimingFrontSpawn;
+            currentShotSpawn = shootingOnAir ? canonAimingFrontSpawnAir : canonAimingFrontSpawn;
         }
         else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY < 0)
         {
             aimingDirection = aimingDownFrontConst;//down-right 315 grados 
-            currentShotSpawn = canonAimingDownFrontSpawn;
+            currentShotSpawn = shootingOnAir ? canonAimingDownFrontSpawnAir : canonAimingDownFrontSpawn;
         }
         else if (moveSpeedX == 0 && moveSpeedY < 0)
         {
             aimingDirection = aimingDownConst;//down 270 grados
-            currentShotSpawn = canonAimingDownSpawn;
+            currentShotSpawn = shootingOnAir ? canonAimingDownSpawnAir : canonAimingDownSpawn;
         }
 
         // Apuntando arriba-delante
         if (Input.GetKey(KeyCode.R))
         {
             aimingDirection = aimingUpFrontConst;
-            currentShotSpawn = canonAimingUpFrontSpawn;
+            currentShotSpawn = shootingOnAir ? canonAimingUpFrontSpawnAir : canonAimingUpFrontSpawn;
         }
         // Apuntando debajo-delante
         if (Input.GetKey(KeyCode.F))
         {
             aimingDirection = aimingDownFrontConst;
-            currentShotSpawn = canonAimingDownFrontSpawn;
+            currentShotSpawn = shootingOnAir ? canonAimingDownFrontSpawnAir : canonAimingDownFrontSpawn;
         }
 
         anim.SetInteger("AimingDirection", aimingDirection);
+        anim.SetFloat("AimingDirectionF", aimingDirection);
 
         // Si cambia el objetivo de disparo se deshabilita el disparo al frente
         if (aimingDirection != aimingDownFrontConst)
@@ -164,7 +174,8 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         // Se captura la direccion y velocidad del movimiento horizontal
-        moveSpeedX = Input.GetAxis("Horizontal");
+        //moveSpeedX = Input.GetAxis("Horizontal");
+        moveSpeedX = Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0;
         moveSpeedY = Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0;
 
         HandleJump();
@@ -245,6 +256,8 @@ public class CharacterMovement : MonoBehaviour
         // Si al atacar se apunta al frente se habilita la bandera
         if (aimingDirection == aimingFrontConst)
             anim.SetBool("ShootingFront", true);
+
+        if (!grounded) { shootingOnAir = true; }
     }
 
 }
