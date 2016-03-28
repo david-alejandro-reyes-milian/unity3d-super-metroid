@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 022cb97148cbde4439cee66a66609eed
-timeCreated: 1459194222
+timeCreated: 1459197825
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -94,8 +94,8 @@ TextureImporter:
     21300174: 31613_67
     21300176: 31613_68
     21300178: 31613_69
-    21300180: 31613_70
-    21300182: 31613_71
+    21300180: right_jump_aiming_up_0
+    21300182: right_jump_aiming_down_0
     21300184: 31613_72
     21300186: 31613_73
     21300188: 31613_74
@@ -136,7 +136,7 @@ TextureImporter:
     21300258: 31613_109
     21300260: 31613_110
     21300262: 31613_111
-    21300264: 31613_112
+    21300264: right_jump_aiming_front_0
     21300266: 31613_113
     21300268: 31613_114
     21300270: 31613_115
@@ -942,7 +942,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_70
+    - name: right_jump_aiming_up_0
       rect:
         serializedVersion: 2
         x: 351
@@ -952,7 +952,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_71
+    - name: right_jump_aiming_down_0
       rect:
         serializedVersion: 2
         x: 401
@@ -1362,7 +1362,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_112
+    - name: right_jump_aiming_front_0
       rect:
         serializedVersion: 2
         x: 251
