@@ -28,7 +28,7 @@ public class CharacterMovement : MonoBehaviour
     private Rigidbody rigidbody;
     private CapsuleCollider collider;
     public Transform groundCheck;
-    public float groundRadius = 0.001f;
+    public float groundRadius = 0.0001f;
     public LayerMask whatIsGround;
     public bool grounded = false;
     public bool goingUp = false;
