@@ -1,12 +1,16 @@
 fileFormatVersion: 2
 guid: fbdb6875c0f66ca4ab222568223f04cf
-timeCreated: 1459192851
+timeCreated: 1459268470
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: jump_turn_right_0
-    21300002: jump_turn_right_1
-    21300004: jump_turn_right_2
+    21300000: idle_down_turn_right_0
+    21300002: idle_down_turn_right_1
+    21300004: idle_down_turn_right_2
+    21300006: idle_down_right_aiming_down_front_0
+    21300008: idle_down_right_aiming_up_front_0
+    21300010: ball_transform_right_0
+    21300012: ball_transform_right_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,7 +56,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: jump_turn_right_0
+    - name: idle_down_turn_right_0
       rect:
         serializedVersion: 2
         x: 711
@@ -62,7 +66,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: jump_turn_right_1
+    - name: idle_down_turn_right_1
       rect:
         serializedVersion: 2
         x: 743
@@ -72,13 +76,53 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: jump_turn_right_2
+    - name: idle_down_turn_right_2
       rect:
         serializedVersion: 2
-        x: 780
+        x: 779
         y: 385
         width: 22
         height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_down_right_aiming_down_front_0
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 213
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_down_right_aiming_up_front_0
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 213
+        width: 28
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ball_transform_right_0
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 25
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ball_transform_right_1
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 25
+        width: 16
+        height: 21
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

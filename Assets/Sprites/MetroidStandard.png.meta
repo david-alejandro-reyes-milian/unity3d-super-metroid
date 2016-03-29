@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 022cb97148cbde4439cee66a66609eed
-timeCreated: 1459197825
+timeCreated: 1459269332
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -246,19 +246,19 @@ TextureImporter:
     21300478: 31613_219
     21300480: 31613_220
     21300482: 31613_221
-    21300484: 31613_222
-    21300486: 31613_223
-    21300488: 31613_224
-    21300490: 31613_225
-    21300492: 31613_226
+    21300484: asdas das d
+    21300486: ball_right_0
+    21300488: ball_right_1
+    21300490: ball_right_2
+    21300492: ball_right_3
     21300494: 31613_227
     21300496: 31613_228
     21300498: 31613_229
-    21300500: 31613_230
-    21300502: 31613_231
+    21300500: ball_right_5
+    21300502: ball_right_4
     21300504: 31613_232
-    21300506: 31613_233
-    21300508: 31613_234
+    21300506: ball_right_6
+    21300508: ball_right_7
     21300510: left_cross_jump_5
     21300512: left_cross_jump_4
     21300514: left_cross_jump_3
@@ -347,6 +347,7 @@ TextureImporter:
     21300680: 31613_320
     21300682: 31613_321
     21300684: 31613_322
+    21300686: idle_down_right_aiming_up_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -2452,7 +2453,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_222
+    - name: asdas das d
       rect:
         serializedVersion: 2
         x: 204
@@ -2462,7 +2463,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_223
+    - name: ball_right_0
       rect:
         serializedVersion: 2
         x: 254
@@ -2472,17 +2473,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_224
+    - name: ball_right_1
       rect:
         serializedVersion: 2
-        x: 304
+        x: 303
         y: 714
         width: 16
         height: 16
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_225
+    - name: ball_right_2
       rect:
         serializedVersion: 2
         x: 354
@@ -2492,7 +2493,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_226
+    - name: ball_right_3
       rect:
         serializedVersion: 2
         x: 404
@@ -2532,7 +2533,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_230
+    - name: ball_right_5
       rect:
         serializedVersion: 2
         x: 204
@@ -2542,7 +2543,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_231
+    - name: ball_right_4
       rect:
         serializedVersion: 2
         x: 254
@@ -2562,7 +2563,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_233
+    - name: ball_right_6
       rect:
         serializedVersion: 2
         x: 354
@@ -2572,7 +2573,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: 31613_234
+    - name: ball_right_7
       rect:
         serializedVersion: 2
         x: 404
@@ -3459,6 +3460,16 @@ TextureImporter:
         y: 0
         width: 29
         height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: idle_down_right_aiming_up_0
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 1904
+        width: 18
+        height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

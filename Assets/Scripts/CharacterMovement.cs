@@ -9,6 +9,15 @@ public class CharacterMovement : MonoBehaviour
     public float moveSpeedX;
     public float moveSpeedY;
 
+    // Character State
+    public int bodyState = 0;
+    private const int playerStandingConst = 0;
+    private const int playerOnKneesConst = 1;
+    private const int playerAsBallConst = 2;
+    private const float playerStandingColliderheigthConst = .43f;
+    private const float playerOnKneesColliderheigthConst = .33f;
+    private const float playerAsBallColliderheigthConst = .0f;
+
     // Jumps
     public bool doubleJump = false;
     public int maxJumpCount = 5;
@@ -17,18 +26,18 @@ public class CharacterMovement : MonoBehaviour
 
     // Physics
     private Rigidbody rigidbody;
+    private CapsuleCollider collider;
     public Transform groundCheck;
     public float groundRadius = 0.001f;
     public LayerMask whatIsGround;
     public bool grounded = false;
     public bool goingUp = false;
 
+
     // Turning
     public float turnWaitTime = .2f;
     public float turnTime = 0;
     public bool turning = false;
-
-    private Animator anim;
 
     // Shotting
     public float shotSpeed = 600.0f;
@@ -55,8 +64,11 @@ public class CharacterMovement : MonoBehaviour
     //Sounds 
     AudioClip baseShotSound;
 
+    private Animator anim;
+
     void Awake()
     {
+        collider = GetComponent<CapsuleCollider>();
         rigidbody = GetComponent<Rigidbody>();
         // Para que el rigidbody no deje de recibir eventos mientras esta inmovil
         rigidbody.sleepThreshold = 0.0f;
@@ -88,6 +100,14 @@ public class CharacterMovement : MonoBehaviour
         anim.SetFloat("MoveSpeedX", moveSpeedX);
         anim.SetFloat("MoveSpeedY", moveSpeedY);
         anim.SetBool("GoingUp", goingUp);
+        anim.SetInteger("BodyState", bodyState);
+
+        if (bodyState == playerStandingConst && collider.height != playerStandingColliderheigthConst)
+            collider.height = playerStandingColliderheigthConst;
+        else if (bodyState == playerOnKneesConst && collider.height != playerOnKneesColliderheigthConst)
+            collider.height = playerOnKneesColliderheigthConst;
+        else if (bodyState == playerAsBallConst && collider.height != playerAsBallColliderheigthConst)
+            collider.height = playerAsBallColliderheigthConst;
 
         HandleAimingDirection();
 
@@ -165,6 +185,7 @@ public class CharacterMovement : MonoBehaviour
         }
 
         anim.SetInteger("AimingDirection", aimingDirection);
+        // Usado en arbol de mezclas
         anim.SetFloat("AimingDirectionF", aimingDirection);
 
         // Si cambia el objetivo de disparo se deshabilita el disparo al frente
@@ -178,6 +199,8 @@ public class CharacterMovement : MonoBehaviour
         //moveSpeedX = Input.GetAxis("Horizontal");
         moveSpeedX = Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0;
         moveSpeedY = Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0;
+
+        HandleBodyState();
 
         HandleJump();
 
@@ -208,6 +231,16 @@ public class CharacterMovement : MonoBehaviour
 
 
     }
+
+    void HandleBodyState()
+    {
+        if (Input.GetKeyDown(KeyCode.S) && moveSpeedX == 0) { bodyState = bodyState < 2 ? bodyState + 1 : 2; }
+        else if (Input.GetKeyDown(KeyCode.W)) { bodyState = bodyState > 0 ? bodyState - 1 : 0; }
+
+        if (moveSpeedX != 0 && bodyState == playerOnKneesConst) bodyState = playerStandingConst;
+
+    }
+
     void HandleJump()
     {
         // Se captura la direccion del salto para reaccionar en caida libre y animaciones
@@ -225,6 +258,9 @@ public class CharacterMovement : MonoBehaviour
                 if (jumpCount < maxJumpCount && !grounded) jumpCount++;
                 // Al saltar se deshabilita el disparo hacia el frente
                 anim.SetBool("ShootingFront", false);
+
+                // Al saltar se reinicia el estado del jugador en el suelo
+                bodyState = playerStandingConst;
             }
         }
     }
