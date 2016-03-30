@@ -261,8 +261,16 @@ public class CharacterMovement : MonoBehaviour
         else
         {
             if (Input.GetKeyDown(KeyCode.S) && moveSpeedX == 0) { bodyStateAir = bodyStateAir < 2 ? bodyStateAir + 1 : 2; }
-            else if (Input.GetKeyDown(KeyCode.W)) { bodyStateAir = bodyStateAir > 0 ? bodyStateAir - 1 : 0; }
-            if (moveSpeedX != 0 && bodyState == playerOnKneesConst) bodyStateAir = playerStandingConst;
+            else if (Input.GetKeyDown(KeyCode.W))
+            {
+                bodyStateAir = bodyStateAir > 0 ? bodyStateAir - 1 : 0;
+                // Mientras se encuentra en el aire si se presiona arriba mientras esta en forma de bola se transforma
+                if (bodyState == playerAsBallConst && !grounded)
+                {
+                    bodyStateAir = playerStandingConst;
+                    bodyState = playerStandingConst;
+                }
+            }
         }
     }
 
@@ -274,8 +282,14 @@ public class CharacterMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            if (bodyState == playerAsBallConst)
+            {
+                if (grounded) { bodyState = playerOnKneesConst; }
+                else { bodyState = playerStandingConst; bodyStateAir = playerStandingConst; }
+            }
+
             // Si el personaje esta en el suelo o si kedan saltos permisibles aun y se presiona saltar
-            if ((grounded || jumpCount < maxJumpCount))
+            else if ((grounded || jumpCount < maxJumpCount))
             {
                 // Se annade una fuerza vertical (Salto)
                 rigidbody.AddForce(new Vector2(0.0f, jumpSpeed));
