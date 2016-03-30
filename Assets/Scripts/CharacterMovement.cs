@@ -11,6 +11,7 @@ public class CharacterMovement : MonoBehaviour
 
     // Character State
     public int bodyState = 0;
+    public int bodyStateAir = 0;
     private const int playerStandingConst = 0;
     private const int playerOnKneesConst = 1;
     private const int playerAsBallConst = 2;
@@ -19,7 +20,6 @@ public class CharacterMovement : MonoBehaviour
     private const float playerAsBallColliderheigthConst = .0f;
 
     // Jumps
-    public bool doubleJump = false;
     public int maxJumpCount = 5;
     public int jumpCount = 0;
     public float jumpSpeed = 15;
@@ -102,12 +102,7 @@ public class CharacterMovement : MonoBehaviour
         anim.SetBool("GoingUp", goingUp);
         anim.SetInteger("BodyState", bodyState);
 
-        if (bodyState == playerStandingConst && collider.height != playerStandingColliderheigthConst)
-            collider.height = playerStandingColliderheigthConst;
-        else if (bodyState == playerOnKneesConst && collider.height != playerOnKneesColliderheigthConst)
-            collider.height = playerOnKneesColliderheigthConst;
-        else if (bodyState == playerAsBallConst && collider.height != playerAsBallColliderheigthConst)
-            collider.height = playerAsBallColliderheigthConst;
+        AdjustBody();
 
         HandleAimingDirection();
 
@@ -118,9 +113,9 @@ public class CharacterMovement : MonoBehaviour
         // Si se esta sobre el suelo se inicializan los estados de salto y disparos en el aire
         if (grounded)
         {
-            doubleJump = false;
             jumpCount = 0;
             shootingOnAir = false;
+            bodyStateAir = playerStandingConst;
         }
         anim.SetBool("ShootingOnAir", shootingOnAir);
 
@@ -137,7 +132,31 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-
+    void AdjustBody()
+    {
+        // Se ajusta el collider del cuerpo y el punto de checkeo del suelo de acuerdo al tamanno del cuerpo
+        if (bodyState == playerStandingConst && collider.height != playerStandingColliderheigthConst)
+        {
+            collider.height = playerStandingColliderheigthConst;
+            groundCheck.transform.localPosition = new Vector2(0, -0.2158f);
+        }
+        else if (bodyState == playerOnKneesConst && collider.height != playerOnKneesColliderheigthConst)
+        {
+            collider.height = playerOnKneesColliderheigthConst;
+            groundCheck.transform.localPosition = new Vector2(0, -0.1598f);
+        }
+        else if (bodyState == playerAsBallConst && collider.height != playerAsBallColliderheigthConst)
+        {
+            collider.height = playerAsBallColliderheigthConst;
+            groundCheck.transform.localPosition = new Vector2(0, -0.0808f);
+        }
+        else if (bodyStateAir == playerAsBallConst && collider.height != playerAsBallColliderheigthConst)
+        {
+            collider.height = playerAsBallColliderheigthConst;
+            groundCheck.transform.localPosition = new Vector2(0, -0.0808f);
+            bodyState = bodyStateAir;
+        }
+    }
     void HandleAimingDirection()
     {
         if (moveSpeedX == 0 && moveSpeedY == 0)
@@ -201,7 +220,6 @@ public class CharacterMovement : MonoBehaviour
         moveSpeedY = Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0;
 
         HandleBodyState();
-
         HandleJump();
 
         // Se actualiza el estado del giro
@@ -234,11 +252,18 @@ public class CharacterMovement : MonoBehaviour
 
     void HandleBodyState()
     {
-        if (Input.GetKeyDown(KeyCode.S) && moveSpeedX == 0) { bodyState = bodyState < 2 ? bodyState + 1 : 2; }
-        else if (Input.GetKeyDown(KeyCode.W)) { bodyState = bodyState > 0 ? bodyState - 1 : 0; }
-
-        if (moveSpeedX != 0 && bodyState == playerOnKneesConst) bodyState = playerStandingConst;
-
+        if (grounded)
+        {
+            if (Input.GetKeyDown(KeyCode.S) && moveSpeedX == 0) { bodyState = bodyState < 2 ? bodyState + 1 : 2; }
+            else if (Input.GetKeyDown(KeyCode.W)) { bodyState = bodyState > 0 ? bodyState - 1 : 0; }
+            if (moveSpeedX != 0 && bodyState == playerOnKneesConst) bodyState = playerStandingConst;
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.S) && moveSpeedX == 0) { bodyStateAir = bodyStateAir < 2 ? bodyStateAir + 1 : 2; }
+            else if (Input.GetKeyDown(KeyCode.W)) { bodyStateAir = bodyStateAir > 0 ? bodyStateAir - 1 : 0; }
+            if (moveSpeedX != 0 && bodyState == playerOnKneesConst) bodyStateAir = playerStandingConst;
+        }
     }
 
     void HandleJump()
@@ -261,6 +286,7 @@ public class CharacterMovement : MonoBehaviour
 
                 // Al saltar se reinicia el estado del jugador en el suelo
                 bodyState = playerStandingConst;
+                bodyStateAir = playerStandingConst;
             }
         }
     }
