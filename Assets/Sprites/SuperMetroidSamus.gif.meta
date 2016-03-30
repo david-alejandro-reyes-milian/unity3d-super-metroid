@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fbdb6875c0f66ca4ab222568223f04cf
-timeCreated: 1459268470
+timeCreated: 1459376923
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -93,8 +93,8 @@ TextureImporter:
         y: 213
         width: 27
         height: 31
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .392190427, y: .509723306}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: idle_down_right_aiming_up_front_0
       rect:
@@ -103,8 +103,8 @@ TextureImporter:
         y: 213
         width: 28
         height: 37
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .369160235, y: .427026272}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: ball_transform_right_0
       rect:
