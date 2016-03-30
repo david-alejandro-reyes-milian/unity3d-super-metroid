@@ -120,8 +120,7 @@ public class CharacterMovement : MonoBehaviour
         anim.SetBool("ShootingOnAir", shootingOnAir);
 
         // En funcion del movimiento se cambia la orientacion del personaje
-        if (moveSpeedX > 0.0f && !facingRight) { Flip(); }
-        else if (moveSpeedX < 0.0f && facingRight) { Flip(); }
+        if ((moveSpeedX > 0.0f && !facingRight) || (moveSpeedX < 0.0f && facingRight)) { Flip(); }
 
         // Mientras ocurre el giro del personaje no ocurre movimiento
         if (!turning)
@@ -194,13 +193,16 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
         {
             aimingDirection = aimingUpFrontConst;
-            currentShotSpawn = shootingOnAir ? canonAimingUpFrontSpawnAir : canonAimingUpFrontSpawn;
+            currentShotSpawn = shootingOnAir || bodyState == playerOnKneesConst ?
+                canonAimingUpFrontSpawnAir : canonAimingUpFrontSpawn;
+
         }
         // Apuntando debajo-delante
         if (Input.GetKey(KeyCode.F))
         {
             aimingDirection = aimingDownFrontConst;
-            currentShotSpawn = shootingOnAir ? canonAimingDownFrontSpawnAir : canonAimingDownFrontSpawn;
+            currentShotSpawn = shootingOnAir || bodyState == playerOnKneesConst ? 
+                canonAimingDownFrontSpawnAir : canonAimingDownFrontSpawn;
         }
 
         anim.SetInteger("AimingDirection", aimingDirection);
