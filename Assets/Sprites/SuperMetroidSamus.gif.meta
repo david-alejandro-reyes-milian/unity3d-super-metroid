@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fbdb6875c0f66ca4ab222568223f04cf
-timeCreated: 1459376923
+timeCreated: 1459457171
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -11,6 +11,7 @@ TextureImporter:
     21300008: idle_down_right_aiming_up_front_0
     21300010: ball_transform_right_0
     21300012: ball_transform_right_1
+    21300014: run_left_aiming_down_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -24,7 +25,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -44,11 +45,12 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
@@ -64,8 +66,9 @@ TextureImporter:
         width: 23
         height: 35
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: idle_down_turn_right_1
       rect:
         serializedVersion: 2
@@ -74,8 +77,9 @@ TextureImporter:
         width: 24
         height: 35
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: idle_down_turn_right_2
       rect:
         serializedVersion: 2
@@ -84,8 +88,9 @@ TextureImporter:
         width: 22
         height: 35
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: idle_down_right_aiming_down_front_0
       rect:
         serializedVersion: 2
@@ -94,8 +99,9 @@ TextureImporter:
         width: 27
         height: 31
       alignment: 9
-      pivot: {x: .392190427, y: .509723306}
+      pivot: {x: 0.39219043, y: 0.5097233}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: idle_down_right_aiming_up_front_0
       rect:
         serializedVersion: 2
@@ -104,8 +110,9 @@ TextureImporter:
         width: 28
         height: 37
       alignment: 9
-      pivot: {x: .369160235, y: .427026272}
+      pivot: {x: 0.36916023, y: 0.42702627}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: ball_transform_right_0
       rect:
         serializedVersion: 2
@@ -114,8 +121,9 @@ TextureImporter:
         width: 16
         height: 27
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: ball_transform_right_1
       rect:
         serializedVersion: 2
@@ -124,8 +132,29 @@ TextureImporter:
         width: 16
         height: 21
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: run_left_aiming_down_10
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 193
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.5, y: 21.5}
+        - {x: -10.5, y: 21.5}
+        - {x: -17.5, y: 9.5}
+        - {x: -17.5, y: -21.5}
+        - {x: -1.5, y: -21.5}
+        - {x: 17.5, y: -12.5}
+        - {x: 17.5, y: 1.5}
+        - {x: 10.5, y: 19.5}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
