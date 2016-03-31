@@ -56,7 +56,7 @@ public class CharacterMovement : MonoBehaviour
     private const int aimingDownFrontConst = 4;
     private const int aimingDownConst = 5;
     // Weapon spawns:
-    GameObject canonIdleSpawn, canonAimingFrontSpawn, canonAimingUpFrontSpawn,
+    GameObject canonIdleSpawn, canonAimingFrontSpawn, canonAimingFrontKneesSpawn, canonAimingUpFrontSpawn,
         canonAimingDownFrontSpawn, canonAimingUp;
     GameObject canonIdleSpawnAir, canonAimingFrontSpawnAir, canonAimingUpFrontSpawnAir,
        canonAimingDownFrontSpawnAir, canonAimingUpAir, canonAimingDownSpawnAir;
@@ -82,6 +82,7 @@ public class CharacterMovement : MonoBehaviour
         // Inicializando posiciones de cañon
         canonIdleSpawn = GameObject.Find("/Character/CanonAiming/CanonIdleSpawn");
         canonAimingFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingFrontSpawn");
+        canonAimingFrontKneesSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingFrontKneesSpawn");
         canonAimingUpFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingUpFrontSpawn");
         canonAimingDownFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingDownFrontSpawn");
         canonAimingUp = GameObject.Find("/Character/CanonAiming/CanonAimingUp");
@@ -102,8 +103,10 @@ public class CharacterMovement : MonoBehaviour
         anim.SetBool("GoingUp", goingUp);
         anim.SetInteger("BodyState", bodyState);
 
+        // Se ajusta el cuerpo del caracter segun el bodyState
         AdjustBody();
 
+        // Se gestiona la puntería
         HandleAimingDirection();
 
         // Se chekea si se toca el suelo y se actualizan los estados de la animacion
@@ -161,7 +164,8 @@ public class CharacterMovement : MonoBehaviour
         if (moveSpeedX == 0 && moveSpeedY == 0)
         {
             aimingDirection = aimingIdleConst;//idle
-            currentShotSpawn = canonIdleSpawn;
+            // Si el caracter esta de rodillas, usa el spawn especial de esa posicion
+            currentShotSpawn = bodyState == playerOnKneesConst ? canonAimingFrontKneesSpawn : canonIdleSpawn;
         }
         else if (moveSpeedX == 0 && moveSpeedY > 0)
         {
@@ -201,17 +205,16 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.F))
         {
             aimingDirection = aimingDownFrontConst;
-            currentShotSpawn = shootingOnAir || bodyState == playerOnKneesConst ? 
+            currentShotSpawn = shootingOnAir || bodyState == playerOnKneesConst ?
                 canonAimingDownFrontSpawnAir : canonAimingDownFrontSpawn;
         }
 
         anim.SetInteger("AimingDirection", aimingDirection);
-        // Usado en arbol de mezclas
+        // Una copia como float usada en arbol de mezclas
         anim.SetFloat("AimingDirectionF", aimingDirection);
 
-        // Si cambia el objetivo de disparo se deshabilita el disparo al frente
-        if (aimingDirection != aimingDownFrontConst)
-            anim.SetBool("ShootingFront", false);
+        // Si cambia el objetivo de disparo o se salta se deshabilita el disparo al frente
+        if (aimingDirection != aimingFrontConst || !grounded) { anim.SetBool("ShootingFront", false); }
     }
 
     void Update()
@@ -236,20 +239,12 @@ public class CharacterMovement : MonoBehaviour
         }
 
         // Se controla la frecuencia de disparos
-        if (lastShotTime >= shotWaitTime)
+        if (lastShotTime >= shotWaitTime && Input.GetButtonDown("Fire1"))
         {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                lastShotTime = 0;
-                Attack();
-            }
+            lastShotTime = 0;
+            Attack();
         }
-        else
-        {
-            lastShotTime += Time.deltaTime;
-        }
-
-
+        else { lastShotTime += Time.deltaTime; }
     }
 
     void HandleBodyState()
@@ -279,11 +274,11 @@ public class CharacterMovement : MonoBehaviour
     void HandleJump()
     {
         // Se captura la direccion del salto para reaccionar en caida libre y animaciones
-        if (rigidbody.velocity.y >= 0.5f) goingUp = true;
-        else goingUp = false;
+        if (rigidbody.velocity.y >= 0.5f) goingUp = true; else goingUp = false;
 
         if (Input.GetButtonDown("Jump"))
         {
+            // Si modo bola, se actualiza el estado del cuerpo a de rodillas
             if (bodyState == playerAsBallConst)
             {
                 if (grounded) { bodyState = playerOnKneesConst; }
@@ -320,6 +315,7 @@ public class CharacterMovement : MonoBehaviour
         anim.SetBool("Turning", turning);
         anim.SetBool("ShootingFront", false);
     }
+
     void Attack()
     {
         // En el suelo no se puede disparar hacia abajo
