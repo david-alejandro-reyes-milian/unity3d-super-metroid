@@ -113,6 +113,7 @@ public class CharacterMovement : MonoBehaviour
         grounded =
             Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Grounded", grounded);
+        
         // Si se esta sobre el suelo se inicializan los estados de salto y disparos en el aire
         if (grounded)
         {
