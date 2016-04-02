@@ -64,7 +64,7 @@ public class CharacterMovement : MonoBehaviour
        canonAimingDownFrontSpawnAir, canonAimingUpAir, canonAimingDownSpawnAir;
 
     //Sounds 
-    AudioClip baseShotSound;
+    AudioClip baseShotSound, bombSound;
 
     private Animator anim;
 
@@ -98,6 +98,7 @@ public class CharacterMovement : MonoBehaviour
 
         // Cargando sonidos
         baseShotSound = Resources.Load("Sounds/BaseShot", typeof(AudioClip)) as AudioClip;
+        bombSound = Resources.Load("Sounds/Bomb", typeof(AudioClip)) as AudioClip;
     }
 
     void FixedUpdate()
@@ -359,6 +360,7 @@ public class CharacterMovement : MonoBehaviour
 
         clone =
             Instantiate(bombPrefab, transform.position, transform.rotation) as Rigidbody;
+        
         // Ignorar colisiones del caracter con las bombas:
         Physics.IgnoreCollision(collider, clone.GetComponent<Collider>());
     }
