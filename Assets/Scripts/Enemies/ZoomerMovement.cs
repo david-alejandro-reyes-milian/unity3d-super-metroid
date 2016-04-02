@@ -4,25 +4,29 @@ using System.Collections;
 public class ZoomerMovement : MonoBehaviour
 {
     public Vector2 position;
+    Rigidbody rigidBody;
 
-    public float maxWalkingDistance = 10.0f;
-    public float currentWalkingDistance = 0.0f;
-    public float moveSpeed = 0.1f;
+    public float currentMovementTime = 0.0f;
+    public float maxMovementTime = 8f;
+    public float moveSpeed = .5f;
     public bool walkingRight = true;
 
-    void Start()
+    void Awake()
     {
         position = transform.position;
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        if (walkingRight && currentWalkingDistance <= maxWalkingDistance)
-            currentWalkingDistance += Time.deltaTime * moveSpeed;
-        else if (!walkingRight && currentWalkingDistance >= 0)
-            currentWalkingDistance -= Time.deltaTime * moveSpeed;
-        else
+        if (currentMovementTime >= maxMovementTime)
+        {
             walkingRight = !walkingRight;
-        transform.position = new Vector3(position.x + currentWalkingDistance, transform.position.y);
+            currentMovementTime = 0;
+        }
+        currentMovementTime += Time.deltaTime;
+
+        rigidBody.velocity =
+            new Vector2(walkingRight ? moveSpeed : -moveSpeed, rigidBody.velocity.y);
     }
 }

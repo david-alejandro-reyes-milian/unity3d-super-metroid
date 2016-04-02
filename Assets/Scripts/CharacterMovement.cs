@@ -360,9 +360,9 @@ public class CharacterMovement : MonoBehaviour
 
         clone =
             Instantiate(bombPrefab, transform.position, transform.rotation) as Rigidbody;
-        
-        // Ignorar colisiones del caracter con las bombas:
-        Physics.IgnoreCollision(collider, clone.GetComponent<Collider>());
+
+        // Ignorar colisiones del caracter con cada instancia de la bomba(otra forma es a traves de capas):
+        //Physics.IgnoreCollision(collider, clone.GetComponent<Collider>());
     }
     void ChangeWeapon()
     {
