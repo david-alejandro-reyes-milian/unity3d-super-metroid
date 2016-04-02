@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 022cb97148cbde4439cee66a66609eed
-timeCreated: 1459588792
+timeCreated: 1459597617
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -893,11 +893,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 52
-        y: 2000
+        y: 1999
         width: 20
         height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.38916683, y: 0.4150368}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: idle_right_aiming_up
@@ -908,7 +908,7 @@ TextureImporter:
         width: 20
         height: 54
       alignment: 9
-      pivot: {x: 0.60059357, y: 0.40585667}
+      pivot: {x: 0.6275635, y: 0.39587176}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: idle_left_aiming_up_front
@@ -918,16 +918,16 @@ TextureImporter:
         y: 1951
         width: 32
         height: 49
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.59345746, y: 0.43896484}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -16, y: 24.5}
-        - {x: -16, y: 2.5}
-        - {x: -10, y: -24.5}
-        - {x: 16, y: -24.5}
-        - {x: 16, y: 18.5}
-        - {x: -2, y: 24.5}
+      - - {x: -18.990639, y: 27.490723}
+        - {x: -18.990639, y: 5.4907227}
+        - {x: -12.990639, y: -21.509277}
+        - {x: 13.009361, y: -21.509277}
+        - {x: 13.009361, y: 21.490723}
+        - {x: -4.9906387, y: 27.490723}
     - name: idle_left_aiming_down_front
       rect:
         serializedVersion: 2
@@ -935,8 +935,8 @@ TextureImporter:
         y: 1954
         width: 31
         height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.59408617, y: 0.51225936}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: idle_right_aiming_down_front
@@ -947,7 +947,7 @@ TextureImporter:
         width: 31
         height: 42
       alignment: 9
-      pivot: {x: 0.37654063, y: 0.52608234}
+      pivot: {x: 0.40341088, y: 0.5112014}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: idle_right_aiming_up_front
@@ -958,15 +958,15 @@ TextureImporter:
         width: 32
         height: 48
       alignment: 9
-      pivot: {x: 0.40027332, y: 0.46625772}
+      pivot: {x: 0.40027332, y: 0.44889832}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -8.808746, y: 25.619629}
-        - {x: -12.808746, y: 14.619629}
-        - {x: -12.808746, y: -22.380371}
-        - {x: 11.191254, y: -22.380371}
-        - {x: 19.191254, y: 7.619629}
-        - {x: 19.191254, y: 25.619629}
+      - - {x: -8.808746, y: 26.45288}
+        - {x: -12.808746, y: 15.452881}
+        - {x: -12.808746, y: -21.54712}
+        - {x: 11.191254, y: -21.54712}
+        - {x: 19.191254, y: 8.452881}
+        - {x: 19.191254, y: 26.45288}
     - name: idle_down_left_aiming_up_0
       rect:
         serializedVersion: 2
@@ -974,8 +974,8 @@ TextureImporter:
         y: 1904
         width: 18
         height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4160135, y: 0.37140602}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: 31613_67
@@ -4594,8 +4594,8 @@ TextureImporter:
         y: 1904
         width: 18
         height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.57976955, y: 0.37045217}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     outline: []
