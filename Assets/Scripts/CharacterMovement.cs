@@ -46,6 +46,8 @@ public class CharacterMovement : MonoBehaviour
     public bool shootingOnAir = false;
     private GameObject currentShotSpawn;
     public Rigidbody shotPrefab;
+    public Rigidbody bombPrefab;
+    public Rigidbody currentWeaponPrefab;
     Rigidbody clone;
     public int aimingDirection = 0;
     // Estados en que puede estar el cañon
@@ -69,6 +71,7 @@ public class CharacterMovement : MonoBehaviour
     void Awake()
     {
         collider = GetComponent<CapsuleCollider>();
+
         rigidbody = GetComponent<Rigidbody>();
         // Para que el rigidbody no deje de recibir eventos mientras esta inmovil
         rigidbody.sleepThreshold = 0.0f;
@@ -79,6 +82,7 @@ public class CharacterMovement : MonoBehaviour
         // Objeto que manipula las animaciones
         anim = GameObject.Find("/Character/CharacterSprite").GetComponent<Animator>();
 
+        currentWeaponPrefab = shotPrefab;
         // Inicializando posiciones de cañon
         canonIdleSpawn = GameObject.Find("/Character/CanonAiming/CanonIdleSpawn");
         canonAimingFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingFrontSpawn");
@@ -113,7 +117,7 @@ public class CharacterMovement : MonoBehaviour
         grounded =
             Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Grounded", grounded);
-        
+
         // Si se esta sobre el suelo se inicializan los estados de salto y disparos en el aire
         if (grounded)
         {
@@ -246,6 +250,11 @@ public class CharacterMovement : MonoBehaviour
             Attack();
         }
         else { lastShotTime += Time.deltaTime; }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            ChangeWeapon();
+        }
     }
 
     void HandleBodyState()
@@ -319,6 +328,11 @@ public class CharacterMovement : MonoBehaviour
 
     void Attack()
     {
+        if (bodyState == playerAsBallConst) { Bomb(); }
+        else { Shot(); }
+    }
+    void Shot()
+    {
         // En el suelo no se puede disparar hacia abajo
         if (aimingDirection == aimingDownConst && grounded) return;
 
@@ -326,7 +340,7 @@ public class CharacterMovement : MonoBehaviour
         Camera.main.GetComponent<AudioSource>().PlayOneShot(baseShotSound, .5f);
 
         clone =
-            Instantiate(shotPrefab, currentShotSpawn.transform.position, currentShotSpawn.transform.rotation) as Rigidbody;
+            Instantiate(currentWeaponPrefab, currentShotSpawn.transform.position, currentShotSpawn.transform.rotation) as Rigidbody;
         // Se otorga inicialmente la velocidad actual del jugador a la bala
         clone.velocity = rigidbody.velocity;
         // Luego se annade la velocidad del disparo
@@ -337,6 +351,21 @@ public class CharacterMovement : MonoBehaviour
             anim.SetBool("ShootingFront", true);
 
         if (!grounded) { shootingOnAir = true; }
+    }
+    void Bomb()
+    {
+        // Sonido de bomb
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(baseShotSound, .5f);
+
+        clone =
+            Instantiate(bombPrefab, transform.position, transform.rotation) as Rigidbody;
+        // Ignorar colisiones del caracter con las bombas:
+        Physics.IgnoreCollision(collider, clone.GetComponent<Collider>());
+    }
+    void ChangeWeapon()
+    {
+        if (currentWeaponPrefab == shotPrefab) currentWeaponPrefab = bombPrefab;
+        else currentWeaponPrefab = shotPrefab;
     }
 
 }
