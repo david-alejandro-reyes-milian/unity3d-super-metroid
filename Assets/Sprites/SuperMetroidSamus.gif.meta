@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fbdb6875c0f66ca4ab222568223f04cf
-timeCreated: 1459457171
+timeCreated: 1459540387
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -12,6 +12,10 @@ TextureImporter:
     21300010: ball_transform_right_0
     21300012: ball_transform_right_1
     21300014: run_left_aiming_down_10
+    21300016: idle_down_left_aiming_up_front_0
+    21300018: idle_down_left_aiming_down_front_0
+    21300020: ball_transform_left_0
+    21300022: ball_transform_left_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -154,6 +158,50 @@ TextureImporter:
         - {x: 17.5, y: -12.5}
         - {x: 17.5, y: 1.5}
         - {x: 10.5, y: 19.5}
+    - name: idle_down_left_aiming_up_front_0
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 257
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: idle_down_left_aiming_down_front_0
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 209
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ball_transform_left_0
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 25
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: ball_transform_left_1
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 25
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 022cb97148cbde4439cee66a66609eed
-timeCreated: 1459457222
+timeCreated: 1459588792
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -47,19 +47,19 @@ TextureImporter:
     21300080: 31613_20
     21300082: 31613_21
     21300084: 31613_22
-    21300086: unkown0
-    21300088: left_cross_prejump_2
-    21300090: left_cross_prejump_1
-    21300092: left_cross_prejump_0
+    21300086: left_jump_down_1
+    21300088: left_jump_up_2
+    21300090: left_jump_up_1
+    21300092: left_jump_up_0
     21300094: right_jump_up_0
     21300096: right_jump_up_1
     21300098: right_jump_up_2
     21300100: right_jump_down_1
     21300102: 31613_31
-    21300104: left_normal_jump_down_3
-    21300106: left_normal_jump_down_2
-    21300108: left_normal_jump_down_1
-    21300110: left_normal_jump_down_0
+    21300104: left_jump_down_3
+    21300106: left_jump_down_2
+    21300108: unknow
+    21300110: left_jump_down_0
     21300112: right_jump_down_2
     21300114: right_jump_down_0
     21300116: right_cross_prejump_2
@@ -82,7 +82,7 @@ TextureImporter:
     21300150: idle_right_aiming_down_front
     21300152: idle_right_aiming_up_front
     21300154: 31613_57
-    21300156: 31613_58
+    21300156: idle_down_left_aiming_up_0
     21300158: 31613_59
     21300160: 31613_60
     21300162: 31613_61
@@ -92,15 +92,15 @@ TextureImporter:
     21300170: 31613_65
     21300172: 31613_66
     21300174: 31613_67
-    21300176: 31613_68
-    21300178: 31613_69
+    21300176: left_jump_aiming_down_0
+    21300178: left_jump_aiming_up_0
     21300180: right_jump_aiming_up_0
     21300182: right_jump_aiming_down_0
     21300184: 31613_72
     21300186: 31613_73
     21300188: 31613_74
-    21300190: 31613_75
-    21300192: 31613_76
+    21300190: left_jump_aiming_up_front_1
+    21300192: left_jump_aiming_up_front_0
     21300194: right_jump_aiming_up_front_0
     21300196: right_jump_aiming_up_front_1
     21300198: 31613_79
@@ -108,8 +108,8 @@ TextureImporter:
     21300202: 31613_81
     21300204: 31613_82
     21300206: 31613_83
-    21300208: 31613_84
-    21300210: 31613_85
+    21300208: left_jump_aiming_down_front_1
+    21300210: left_jump_aiming_down_front_0
     21300212: right_jump_aiming_down_front_0
     21300214: right_jump_aiming_down_front_1
     21300216: 31613_88
@@ -135,7 +135,7 @@ TextureImporter:
     21300256: 31613_108
     21300258: 31613_109
     21300260: 31613_110
-    21300262: 31613_111
+    21300262: left_jump_aiming_front_0
     21300264: right_jump_aiming_front_0
     21300266: 31613_113
     21300268: 31613_114
@@ -269,7 +269,7 @@ TextureImporter:
     21300524: rigth_cross_jump_5
     21300526: left_cross_jump_1
     21300528: left_cross_jump_0
-    21300530: 31613_245
+    21300530: left_cross_jump_7
     21300532: left_cross_jump_6
     21300534: rigth_cross_jump_6
     21300536: rigth_cross_jump_7
@@ -625,7 +625,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: unkown0
+    - name: left_jump_down_1
       rect:
         serializedVersion: 2
         x: 52
@@ -636,7 +636,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: left_cross_prejump_2
+    - name: left_jump_up_2
       rect:
         serializedVersion: 2
         x: 100
@@ -647,7 +647,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: left_cross_prejump_1
+    - name: left_jump_up_1
       rect:
         serializedVersion: 2
         x: 153
@@ -658,7 +658,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: left_cross_prejump_0
+    - name: left_jump_up_0
       rect:
         serializedVersion: 2
         x: 202
@@ -705,7 +705,7 @@ TextureImporter:
     - name: right_jump_down_1
       rect:
         serializedVersion: 2
-        x: 402
+        x: 401
         y: 2165
         width: 19
         height: 37
@@ -713,7 +713,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: left_normal_jump_down_3
+    - name: left_jump_down_3
       rect:
         serializedVersion: 2
         x: 51
@@ -724,7 +724,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: left_normal_jump_down_2
+    - name: left_jump_down_2
       rect:
         serializedVersion: 2
         x: 103
@@ -735,7 +735,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: left_normal_jump_down_1
+    - name: unknow
       rect:
         serializedVersion: 2
         x: 152
@@ -746,7 +746,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: left_normal_jump_down_0
+    - name: left_jump_down_0
       rect:
         serializedVersion: 2
         x: 202
@@ -760,7 +760,7 @@ TextureImporter:
     - name: right_jump_down_2
       rect:
         serializedVersion: 2
-        x: 253
+        x: 252
         y: 2113
         width: 18
         height: 40
@@ -771,7 +771,7 @@ TextureImporter:
     - name: right_jump_down_0
       rect:
         serializedVersion: 2
-        x: 302
+        x: 301
         y: 2114
         width: 19
         height: 38
@@ -782,7 +782,7 @@ TextureImporter:
     - name: right_cross_prejump_2
       rect:
         serializedVersion: 2
-        x: 352
+        x: 351
         y: 2115
         width: 20
         height: 36
@@ -967,7 +967,7 @@ TextureImporter:
         - {x: 11.191254, y: -22.380371}
         - {x: 19.191254, y: 7.619629}
         - {x: 19.191254, y: 25.619629}
-    - name: 31613_58
+    - name: idle_down_left_aiming_up_0
       rect:
         serializedVersion: 2
         x: 53
@@ -989,7 +989,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31613_68
+    - name: left_jump_aiming_down_0
       rect:
         serializedVersion: 2
         x: 51
@@ -1000,7 +1000,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31613_69
+    - name: left_jump_aiming_up_0
       rect:
         serializedVersion: 2
         x: 101
@@ -1072,7 +1072,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31613_75
+    - name: left_jump_aiming_up_front_1
       rect:
         serializedVersion: 2
         x: 148
@@ -1083,7 +1083,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31613_76
+    - name: left_jump_aiming_up_front_0
       rect:
         serializedVersion: 2
         x: 199
@@ -1177,7 +1177,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31613_84
+    - name: left_jump_aiming_down_front_1
       rect:
         serializedVersion: 2
         x: 149
@@ -1188,7 +1188,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31613_85
+    - name: left_jump_aiming_down_front_0
       rect:
         serializedVersion: 2
         x: 199
@@ -1485,10 +1485,10 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31613_111
+    - name: left_jump_aiming_front_0
       rect:
         serializedVersion: 2
-        x: 201
+        x: 200
         y: 1502
         width: 22
         height: 36
@@ -3457,7 +3457,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31613_245
+    - name: left_cross_jump_7
       rect:
         serializedVersion: 2
         x: 148
