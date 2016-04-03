@@ -108,7 +108,7 @@ public class CharacterMovement : MonoBehaviour
         canonAimingUpSpawnKnees = GameObject.Find("/Character/CanonAimingKnees/CanonAimingUpSpawn");
 
         // Cargando sonidos
-        baseShotSound = Resources.Load("Sounds/BaseShot", typeof(AudioClip)) as AudioClip;
+        baseShotSound = Resources.Load("Sounds/BaseShot_clean", typeof(AudioClip)) as AudioClip;
         bombSound = Resources.Load("Sounds/Bomb", typeof(AudioClip)) as AudioClip;
     }
 
