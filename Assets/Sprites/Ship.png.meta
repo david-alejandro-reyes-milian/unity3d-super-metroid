@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 77b07fc47f0857946be9cef2ebb1e953
+timeCreated: 1459698810
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Ship_0
+    21300002: Ship_1
+    21300004: Ship_2
+    21300006: Ship_3
+    21300008: Ship_4
+    21300010: Ship_5
+    21300012: Ship_6
+    21300014: Ship_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Ship_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 188
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 40}
+        - {x: -94, y: 13}
+        - {x: -94, y: -40}
+        - {x: 84, y: -40}
+        - {x: 94, y: -25}
+        - {x: 94, y: 30}
+        - {x: 51, y: 40}
+    - name: Ship_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 300
+        width: 188
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 40}
+        - {x: -94, y: 13}
+        - {x: -94, y: -40}
+        - {x: 84, y: -40}
+        - {x: 94, y: -25}
+        - {x: 94, y: 30}
+        - {x: 51, y: 40}
+    - name: Ship_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 188
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 40}
+        - {x: -94, y: 13}
+        - {x: -94, y: -40}
+        - {x: 84, y: -40}
+        - {x: 94, y: -25}
+        - {x: 94, y: 30}
+        - {x: 51, y: 40}
+    - name: Ship_3
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 200
+        width: 188
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 40}
+        - {x: -94, y: 13}
+        - {x: -94, y: -40}
+        - {x: 84, y: -40}
+        - {x: 94, y: -25}
+        - {x: 94, y: 30}
+        - {x: 51, y: 40}
+    - name: Ship_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 188
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 40}
+        - {x: -94, y: 13}
+        - {x: -94, y: -40}
+        - {x: 84, y: -40}
+        - {x: 94, y: -25}
+        - {x: 94, y: 30}
+        - {x: 51, y: 40}
+    - name: Ship_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 100
+        width: 188
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 40}
+        - {x: -94, y: 13}
+        - {x: -94, y: -40}
+        - {x: 84, y: -40}
+        - {x: 94, y: -25}
+        - {x: 94, y: 30}
+        - {x: 51, y: 40}
+    - name: Ship_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 188
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 40}
+        - {x: -94, y: 13}
+        - {x: -94, y: -40}
+        - {x: 84, y: -40}
+        - {x: 94, y: -25}
+        - {x: 94, y: 30}
+        - {x: 51, y: 40}
+    - name: Ship_7
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 188
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 40}
+        - {x: -94, y: 13}
+        - {x: -94, y: -40}
+        - {x: 84, y: -40}
+        - {x: 94, y: -25}
+        - {x: 94, y: 30}
+        - {x: 51, y: 40}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
