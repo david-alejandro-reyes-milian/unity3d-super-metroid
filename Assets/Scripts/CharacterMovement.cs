@@ -60,11 +60,12 @@ public class CharacterMovement : MonoBehaviour
     private const int aimingDownFrontConst = 4;
     private const int aimingDownConst = 5;
     // Weapon spawns:
-    GameObject canonIdleSpawn, canonAimingFrontSpawn, canonAimingFrontKneesSpawn, canonAimingUpFrontSpawn,
+    GameObject canonIdleSpawn, canonAimingFrontSpawn, canonAimingUpFrontSpawn,
         canonAimingDownFrontSpawn, canonAimingUp;
     GameObject canonIdleSpawnAir, canonAimingFrontSpawnAir, canonAimingUpFrontSpawnAir,
        canonAimingDownFrontSpawnAir, canonAimingUpAir, canonAimingDownSpawnAir;
-
+    GameObject canonAimingFrontSpawnKnees, canonAimingUpFrontSpawnKnees,
+           canonAimingDownFrontSpawnKnees, canonAimingUpSpawnKnees;
     //Sounds 
     AudioClip baseShotSound, bombSound;
 
@@ -91,15 +92,20 @@ public class CharacterMovement : MonoBehaviour
         // Inicializando posiciones de cañon
         canonIdleSpawn = GameObject.Find("/Character/CanonAiming/CanonIdleSpawn");
         canonAimingFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingFrontSpawn");
-        canonAimingFrontKneesSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingFrontKneesSpawn");
         canonAimingUpFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingUpFrontSpawn");
         canonAimingDownFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingDownFrontSpawn");
         canonAimingUp = GameObject.Find("/Character/CanonAiming/CanonAimingUp");
+
         canonAimingFrontSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingFrontSpawn");
         canonAimingUpFrontSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingUpFrontSpawn");
         canonAimingDownFrontSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingDownFrontSpawn");
         canonAimingUpAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingUp");
         canonAimingDownSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingDownSpawn");
+
+        canonAimingFrontSpawnKnees = GameObject.Find("/Character/CanonAimingKnees/CanonAimingFrontSpawn");
+        canonAimingUpFrontSpawnKnees = GameObject.Find("/Character/CanonAimingKnees/CanonAimingUpFrontSpawn");
+        canonAimingDownFrontSpawnKnees = GameObject.Find("/Character/CanonAimingKnees/CanonAimingDownFrontSpawn");
+        canonAimingUpSpawnKnees = GameObject.Find("/Character/CanonAimingKnees/CanonAimingUpSpawn");
 
         // Cargando sonidos
         baseShotSound = Resources.Load("Sounds/BaseShot", typeof(AudioClip)) as AudioClip;
@@ -181,17 +187,17 @@ public class CharacterMovement : MonoBehaviour
         {
             aimingDirection = aimingIdleConst;//idle
             // Si el caracter esta de rodillas, usa el spawn especial de esa posicion
-            currentShotSpawn = bodyState == playerOnKneesConst ? canonAimingFrontKneesSpawn : canonIdleSpawn;
+            currentShotSpawn = bodyState == playerOnKneesConst ? canonAimingFrontSpawnKnees : canonIdleSpawn;
         }
         else if (moveSpeedX == 0 && moveSpeedY > 0)
         {
             aimingDirection = aimingUpConst;//up
-            currentShotSpawn = shootingOnAir ? canonAimingUpAir : canonAimingUp;
+            currentShotSpawn = shootingOnAir ? canonAimingUpAir : bodyState == playerOnKneesConst ? canonAimingUpSpawnKnees : canonAimingUp;
         }
         else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY > 0)
         {
             aimingDirection = aimingUpFrontConst;//up-right 45 grados
-            currentShotSpawn = shootingOnAir ? canonAimingUpFrontSpawnAir : canonAimingUpFrontSpawn;
+            currentShotSpawn = shootingOnAir ? canonAimingUpFrontSpawnAir : bodyState == playerOnKneesConst ? canonAimingUpFrontSpawnKnees : canonAimingUpFrontSpawn;
         }
         else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY == 0)
         {
@@ -201,7 +207,7 @@ public class CharacterMovement : MonoBehaviour
         else if (Mathf.Abs(moveSpeedX) > 0 && moveSpeedY < 0)
         {
             aimingDirection = aimingDownFrontConst;//down-right 315 grados 
-            currentShotSpawn = shootingOnAir ? canonAimingDownFrontSpawnAir : canonAimingDownFrontSpawn;
+            currentShotSpawn = shootingOnAir ? canonAimingDownFrontSpawnAir : bodyState == playerOnKneesConst ? canonAimingDownFrontSpawnKnees : canonAimingDownFrontSpawn;
         }
         else if (moveSpeedX == 0 && moveSpeedY < 0)
         {
@@ -214,7 +220,7 @@ public class CharacterMovement : MonoBehaviour
         {
             aimingDirection = aimingUpFrontConst;
             currentShotSpawn = shootingOnAir || bodyState == playerOnKneesConst ?
-                canonAimingUpFrontSpawnAir : canonAimingUpFrontSpawn;
+                canonAimingUpFrontSpawnKnees : canonAimingUpFrontSpawn;
 
         }
         // Apuntando debajo-delante
@@ -222,7 +228,7 @@ public class CharacterMovement : MonoBehaviour
         {
             aimingDirection = aimingDownFrontConst;
             currentShotSpawn = shootingOnAir || bodyState == playerOnKneesConst ?
-                canonAimingDownFrontSpawnAir : canonAimingDownFrontSpawn;
+                canonAimingDownFrontSpawnKnees : canonAimingDownFrontSpawn;
         }
 
         anim.SetInteger("AimingDirection", aimingDirection);
@@ -366,7 +372,7 @@ public class CharacterMovement : MonoBehaviour
     void Bomb()
     {
         // Sonido de bomb
-        Camera.main.GetComponent<AudioSource>().PlayOneShot(baseShotSound, .5f);
+        //Camera.main.GetComponent<AudioSource>().PlayOneShot(baseShotSound, .5f);
 
         clone =
             Instantiate(bombPrefab, transform.position, transform.rotation) as Rigidbody;
