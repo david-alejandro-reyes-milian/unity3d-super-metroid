@@ -27,10 +27,12 @@ public class CharacterMovement : MonoBehaviour
     // Physics
     private Rigidbody rigidbody;
     private CapsuleCollider collider;
-    public Transform groundCheck;
+    public Transform groundCheck, obstacleCheck;
     public float groundRadius = 0.0001f;
     public LayerMask whatIsGround;
+    public LayerMask whatIsObstacle;
     public bool grounded = false;
+    public bool touchingObstacle = false;
     public bool goingUp = false;
 
 
@@ -79,6 +81,9 @@ public class CharacterMovement : MonoBehaviour
         // Para comprobar cuando se toca el suelo
         groundCheck = GameObject.Find("/Character/GroundCheck").transform;
 
+        // Para comprobar si se toca un obstaculo
+        obstacleCheck = GameObject.Find("/Character/ObstacleCheck").transform;
+
         // Objeto que manipula las animaciones
         anim = GameObject.Find("/Character/CharacterSprite").GetComponent<Animator>();
 
@@ -118,7 +123,6 @@ public class CharacterMovement : MonoBehaviour
         grounded =
             Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Grounded", grounded);
-
         // Si se esta sobre el suelo se inicializan los estados de salto y disparos en el aire
         if (grounded)
         {
@@ -128,6 +132,10 @@ public class CharacterMovement : MonoBehaviour
         }
         anim.SetBool("ShootingOnAir", shootingOnAir);
 
+        // Se chekea si se toca algun obstaculo
+        touchingObstacle =
+            Physics2D.OverlapCircle(obstacleCheck.position, groundRadius, whatIsObstacle);
+
         // En funcion del movimiento se cambia la orientacion del personaje
         if ((moveSpeedX > 0.0f && !facingRight) || (moveSpeedX < 0.0f && facingRight)) { Flip(); }
 
@@ -135,8 +143,10 @@ public class CharacterMovement : MonoBehaviour
         if (!turning)
         {
             anim.SetBool("Turning", turning);
-            rigidbody.velocity =
-            new Vector2(moveSpeedX * maxSpeed, rigidbody.velocity.y);
+            // Si se toca un obstaculo se para el movimiento del cuerpo
+            if (!touchingObstacle)
+                rigidbody.velocity =
+                new Vector2(moveSpeedX * maxSpeed, rigidbody.velocity.y);
         }
     }
 
