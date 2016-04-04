@@ -18,7 +18,6 @@ public class DoorController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print("Lola");
         if (other.tag == "Shot")
         {
             doorIsOpen = !doorIsOpen;
