@@ -6,7 +6,7 @@ public class EventHandler : MonoBehaviour
     private AudioSource audio;
     public AudioClip spinClip;
     public AudioClip bombClip;
-    public AudioClip openDoorClip, stepClip;
+    public AudioClip openDoorClip, stepClip, burstClip;
     public GameObject doorCollider;
     void Awake()
     {
@@ -32,6 +32,10 @@ public class EventHandler : MonoBehaviour
     public void StepSound()
     {
         audio.PlayOneShot(stepClip, .6f);
+    }
+    public void BurstSound()
+    {
+        audio.PlayOneShot(burstClip, .6f);
     }
 
 }
