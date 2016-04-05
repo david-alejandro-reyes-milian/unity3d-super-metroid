@@ -22,8 +22,6 @@ public class ShotController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        print(other);
-        print(other.tag);
         if (other.tag == "ShotCollider")
         {
             Destroy(gameObject);
