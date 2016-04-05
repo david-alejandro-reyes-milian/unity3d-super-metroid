@@ -22,7 +22,7 @@ public class CharacterMovement : MonoBehaviour
     // Jumps
     public int maxJumpCount = 5;
     public int jumpCount = 0;
-    public float jumpSpeed = 15;
+    public float jumpSpeed = 300;
 
     // Physics
     private Rigidbody rigidbody;
