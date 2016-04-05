@@ -354,7 +354,7 @@ public class CharacterMovement : MonoBehaviour
         if (aimingDirection == aimingDownConst && grounded) return;
 
         // Sonido del disparo
-        Camera.main.GetComponent<AudioSource>().PlayOneShot(baseShotSound, .5f);
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(baseShotSound, .3f);
 
         clone =
             Instantiate(currentWeaponPrefab, currentShotSpawn.transform.position, currentShotSpawn.transform.rotation) as Rigidbody;

@@ -4,9 +4,8 @@ using System.Collections;
 public class EventHandler : MonoBehaviour
 {
     private AudioSource audio;
-    public AudioClip spinClip;
-    public AudioClip bombClip;
-    public AudioClip openDoorClip, stepClip, burstClip;
+    public AudioClip spinClip, bombClip;
+    public AudioClip openDoorClip, stepClip, burstClip, enemyHurt3Clip, enemyDieClip;
     public GameObject doorCollider;
     void Awake()
     {
@@ -36,6 +35,14 @@ public class EventHandler : MonoBehaviour
     public void BurstSound()
     {
         audio.PlayOneShot(burstClip, .6f);
+    }
+    public void EnemyHurt3Sound()
+    {
+        audio.PlayOneShot(enemyHurt3Clip, .8f);
+    }
+    public void EnemyDieSound()
+    {
+        audio.PlayOneShot(enemyDieClip, .8f);
     }
 
 }

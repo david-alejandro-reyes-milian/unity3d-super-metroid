@@ -22,7 +22,7 @@ public class ShotController : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "ShotCollider")
+        if (other.tag == "ShotCollider" || other.tag == "Enemy")
         {
             Destroy(gameObject);
             explotion = GameObject.Instantiate(shot_explotion_pfb, transform.position, transform.rotation) as GameObject;

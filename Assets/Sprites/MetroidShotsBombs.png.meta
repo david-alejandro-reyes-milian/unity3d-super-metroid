@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fa78722da286f65479f38faef571ded9
-timeCreated: 1459603812
+timeCreated: 1459889920
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -58,11 +58,11 @@ TextureImporter:
     21300102: 31618_58
     21300104: 31618_59
     21300106: 31618_60
-    21300108: 31618_61
-    21300110: 31618_62
-    21300112: 31618_63
-    21300114: 31618_64
-    21300116: 31618_65
+    21300108: explotion_0
+    21300110: explotion_1
+    21300112: explotion_2
+    21300114: explotion_3
+    21300116: explotion_4
     21300118: 31618_71
     21300120: 31618_72
     21300122: bomb_explotion_0
@@ -128,6 +128,7 @@ TextureImporter:
     21300242: 31618_135
     21300244: 31618_136
     21300246: 31618_137
+    21300248: explotion_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -174,72 +175,6 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: 31618_0
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 1154
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_1
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 1153
-        width: 6
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_2
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 1154
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_3
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 1154
-        width: 11
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_4
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 1153
-        width: 6
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_5
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 1154
-        width: 11
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
     - name: normal_shot_right_bottom
       rect:
         serializedVersion: 2
@@ -284,28 +219,6 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31618_10
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 1151
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_11
-      rect:
-        serializedVersion: 2
-        x: 371
-        y: 1158
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
     - name: bomb_1
       rect:
         serializedVersion: 2
@@ -313,61 +226,6 @@ TextureImporter:
         y: 1136
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_13
-      rect:
-        serializedVersion: 2
-        x: 371
-        y: 1138
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_14
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 1127
-        width: 15
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_15
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 1127
-        width: 15
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_16
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 1127
-        width: 15
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_17
-      rect:
-        serializedVersion: 2
-        x: 172
-        y: 1127
-        width: 15
-        height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -394,61 +252,6 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31618_20
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 1126
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_21
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 1094
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_22
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 1093
-        width: 6
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_23
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 1094
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_24
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 1094
-        width: 11
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
     - name: 31618_25
       rect:
         serializedVersion: 2
@@ -456,17 +259,6 @@ TextureImporter:
         y: 1093
         width: 6
         height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_26
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 1094
-        width: 11
-        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -522,171 +314,6 @@ TextureImporter:
         y: 1096
         width: 8
         height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_32
-      rect:
-        serializedVersion: 2
-        x: 346
-        y: 1101
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_33
-      rect:
-        serializedVersion: 2
-        x: 371
-        y: 1097
-        width: 8
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_37
-      rect:
-        serializedVersion: 2
-        x: 230
-        y: 1034
-        width: 7
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_38
-      rect:
-        serializedVersion: 2
-        x: 246
-        y: 1034
-        width: 7
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_39
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 1034
-        width: 7
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_40
-      rect:
-        serializedVersion: 2
-        x: 282
-        y: 1052
-        width: 26
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_41
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 1003
-        width: 32
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_42
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 1003
-        width: 32
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_43
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 987
-        width: 32
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_44
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 987
-        width: 32
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_47
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 971
-        width: 32
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_48
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 971
-        width: 32
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_50
-      rect:
-        serializedVersion: 2
-        x: 230
-        y: 914
-        width: 7
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_51
-      rect:
-        serializedVersion: 2
-        x: 246
-        y: 914
-        width: 7
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-    - name: 31618_52
-      rect:
-        serializedVersion: 2
-        x: 262
-        y: 914
-        width: 7
-        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -768,7 +395,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31618_61
+    - name: explotion_0
       rect:
         serializedVersion: 2
         x: 21
@@ -779,7 +406,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31618_62
+    - name: explotion_1
       rect:
         serializedVersion: 2
         x: 67
@@ -790,7 +417,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31618_63
+    - name: explotion_2
       rect:
         serializedVersion: 2
         x: 114
@@ -801,7 +428,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31618_64
+    - name: explotion_3
       rect:
         serializedVersion: 2
         x: 160
@@ -812,7 +439,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: 31618_65
+    - name: explotion_4
       rect:
         serializedVersion: 2
         x: 209
@@ -1700,6 +1327,33 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+    - name: explotion_5
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 809
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 16}
+        - {x: -16, y: 14}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+      - - {x: -3, y: -4}
+        - {x: -8, y: 1}
+        - {x: 1, y: 10}
+        - {x: 8, y: 0}
+      - - {x: -4, y: 8}
+        - {x: -8, y: 5}
+        - {x: -8, y: -4}
+        - {x: -6, y: -7}
+        - {x: -3, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
     outline: []
   spritePackingTag: 
   userData: 
