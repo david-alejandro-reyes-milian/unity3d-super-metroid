@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityStandardAssets.CrossPlatformInput;
 public class CharacterMovement : MonoBehaviour
 {
     // Movement
@@ -242,6 +242,12 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         // Se captura la direccion y velocidad del movimiento horizontal
+
+        // Controles para movil:
+        //moveSpeedX = CrossPlatformInputManager.GetAxis("Horizontal") > .2f ? 1 : CrossPlatformInputManager.GetAxis("Horizontal") < -.2f ? -1 : 0;
+        //moveSpeedY = CrossPlatformInputManager.GetAxis("Vertical") > .2f ? 1 : CrossPlatformInputManager.GetAxis("Vertical") < -.2f ? -1 : 0;
+
+        // Controles PC
         //moveSpeedX = Input.GetAxis("Horizontal");
         moveSpeedX = Input.GetKey(KeyCode.D) ? 1 : Input.GetKey(KeyCode.A) ? -1 : 0;
         moveSpeedY = Input.GetKey(KeyCode.W) ? 1 : Input.GetKey(KeyCode.S) ? -1 : 0;
@@ -304,7 +310,7 @@ public class CharacterMovement : MonoBehaviour
         // Se captura la direccion del salto para reaccionar en caida libre y animaciones
         if (rigidbody.velocity.y >= 0.5f) goingUp = true; else goingUp = false;
 
-        if (Input.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             // Si modo bola, se actualiza el estado del cuerpo a de rodillas
             if (bodyState == playerAsBallConst)
@@ -328,7 +334,7 @@ public class CharacterMovement : MonoBehaviour
                 bodyStateAir = playerStandingConst;
             }
         }
-        if (Input.GetButtonUp("Jump") && goingUp) { rigidbody.velocity = Vector3.zero; }
+        if (CrossPlatformInputManager.GetButtonUp("Jump") && goingUp) { rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0f); }
     }
 
     void Flip()
