@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyHealth : MonoBehaviour
 {
 
-    public int health = 3;
+    public int health = 6;
     public bool isAlive = true;
     Animator anim;
     void Awake()
@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "Shot" && isAlive)
         {
             health--;
