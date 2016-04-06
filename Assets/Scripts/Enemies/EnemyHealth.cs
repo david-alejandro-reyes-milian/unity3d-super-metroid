@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
 {
 
     public int health = 3;
+    public bool isAlive = true;
     Animator anim;
     void Awake()
     {
@@ -13,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Shot")
+        if (other.tag == "Shot" && isAlive)
         {
             health--;
             anim.SetTrigger("AttackReceived");
@@ -23,7 +24,9 @@ public class EnemyHealth : MonoBehaviour
     {
         if (health == 0)
         {
-            //Play enemy death animation
+            isAlive = false;
+            // Se cambia el tag a cualquier otro para que los tiros no colisionen mas con el objeto
+            gameObject.tag = "Shot";
             anim.SetTrigger("IsDead");
             Destroy(gameObject, .8f);
         }

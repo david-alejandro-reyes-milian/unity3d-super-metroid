@@ -42,7 +42,7 @@ public class CharacterMovement : MonoBehaviour
     public bool turning = false;
 
     // Shotting
-    public float shotSpeed = 600.0f;
+    public float shotSpeed = 200;
     public float shotWaitTime = .5f;
     public float lastShotTime = 0;
     public bool shootingOnAir = false;
@@ -272,6 +272,7 @@ public class CharacterMovement : MonoBehaviour
         {
             ChangeWeapon();
         }
+
     }
 
     void HandleBodyState()
@@ -327,6 +328,7 @@ public class CharacterMovement : MonoBehaviour
                 bodyStateAir = playerStandingConst;
             }
         }
+        if (Input.GetButtonUp("Jump") && goingUp) { rigidbody.velocity = Vector3.zero; }
     }
 
     void Flip()
@@ -356,8 +358,13 @@ public class CharacterMovement : MonoBehaviour
         // Sonido del disparo
         Camera.main.GetComponent<AudioSource>().PlayOneShot(baseShotSound, .3f);
 
+        Vector3 newPosition = currentShotSpawn.transform.position;
+        //newPosition.x += .05f;
+        Quaternion newRotation = currentShotSpawn.transform.rotation;
+        //newRotation.z += 2;
+
         clone =
-            Instantiate(currentWeaponPrefab, currentShotSpawn.transform.position, currentShotSpawn.transform.rotation) as Rigidbody;
+            Instantiate(currentWeaponPrefab, newPosition, newRotation) as Rigidbody;
         // Se otorga inicialmente la velocidad actual del jugador a la bala
         clone.velocity = rigidbody.velocity;
         // Luego se annade la velocidad del disparo

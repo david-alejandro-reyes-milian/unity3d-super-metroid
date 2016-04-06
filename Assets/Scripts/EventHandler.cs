@@ -14,7 +14,7 @@ public class EventHandler : MonoBehaviour
 
     public void SpinSound()
     {
-        audio.PlayOneShot(spinClip);
+        audio.PlayOneShot(spinClip,.08f);
     }
     public void BombSound()
     {
