@@ -25,6 +25,8 @@ public class ZoomerHealth : MonoBehaviour
         if (health <= 0)
         {
             isAlive = false;
+            // Se deshabilita el area de ataque para no afectar al caracter
+            transform.Find("AttackArea").gameObject.SetActive(false);
             // Se para el movimiento del zoomer
             movement.enabled = false;
             // Se cambia el tag a cualquier otro para que los tiros no colisionen mas con el objeto
