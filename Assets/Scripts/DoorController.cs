@@ -16,7 +16,7 @@ public class DoorController : MonoBehaviour
         //else { anim.SetTrigger("CloseDoor"); }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.tag == "Weapon")
         {

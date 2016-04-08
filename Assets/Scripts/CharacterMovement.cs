@@ -373,7 +373,15 @@ public class CharacterMovement : MonoBehaviour
             Instantiate(currentWeaponPrefab, newPosition, newRotation) as Rigidbody;
         // Se otorga inicialmente la velocidad actual del jugador a la bala
         clone.velocity = rigidbody.velocity;
-        // Luego se annade la velocidad del disparo
+        // Si se apunta horizontalmente se quita la componente <y> de la velocidad
+        // para que los tiros tengan trayectoria horizontal recta
+        if (aimingDirection == aimingFrontConst || aimingDirection == aimingIdleConst)
+        {
+            Vector2 horizontalOnlyVelocity = clone.velocity;
+            horizontalOnlyVelocity.y = 0;
+            clone.velocity = horizontalOnlyVelocity;
+        }
+        // Luego se annade la propia velocidad del disparo
         clone.AddForce(currentShotSpawn.transform.right * shotSpeed);
 
         // Si al atacar se apunta al frente se habilita la bandera
