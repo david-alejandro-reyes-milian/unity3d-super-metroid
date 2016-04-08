@@ -12,8 +12,9 @@ public class ZoomerHealth : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // Si entra un disparo al area de colisiones y aun esta vivo el enemigo se actualiza el estado
-        if (other.tag == "Shot" && isAlive)
+        // Si entra un disparo proveniente de algun arma del caracter 
+        // al area de colisiones y aun esta vivo el enemigo se actualiza el estado
+        if (other.tag == "Weapon" && isAlive)
         {
             health--;
             anim.SetTrigger("AttackReceived");
@@ -21,13 +22,13 @@ public class ZoomerHealth : MonoBehaviour
     }
     void Update()
     {
-        if (health == 0)
+        if (health <= 0)
         {
             isAlive = false;
             // Se para el movimiento del zoomer
             movement.enabled = false;
             // Se cambia el tag a cualquier otro para que los tiros no colisionen mas con el objeto
-            gameObject.tag = "Shot";
+            gameObject.tag = "Weapon";
             // Se reproduce la animacion de muerte
             anim.SetTrigger("IsDead");
             // Se destruye el objeto pasado un tiempo

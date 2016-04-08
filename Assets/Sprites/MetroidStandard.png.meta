@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 022cb97148cbde4439cee66a66609eed
-timeCreated: 1459597617
+timeCreated: 1460051247
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -348,6 +348,10 @@ TextureImporter:
     21300682: 31613_321
     21300684: 31613_322
     21300686: idle_down_right_aiming_up_0
+    21300688: hurt_right_0
+    21300690: hurt_right_1
+    21300692: hurt_left_0
+    21300694: hurt_left_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -4596,6 +4600,50 @@ TextureImporter:
         height: 43
       alignment: 9
       pivot: {x: 0.57976955, y: 0.37045217}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hurt_right_0
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2295
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hurt_right_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2225
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hurt_left_0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2292
+        width: 23
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hurt_left_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2224
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     outline: []

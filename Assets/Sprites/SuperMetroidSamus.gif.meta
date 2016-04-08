@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fbdb6875c0f66ca4ab222568223f04cf
-timeCreated: 1459806697
+timeCreated: 1460051429
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -24,6 +24,7 @@ TextureImporter:
     21300034: Shot_explotion_5
     21300036: Shot_0
     21300038: Shot_1
+    21300040: hurt_left_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -294,6 +295,17 @@ TextureImporter:
         y: 568
         width: 8
         height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: hurt_left_0
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 432
+        width: 23
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

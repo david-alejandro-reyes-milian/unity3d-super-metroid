@@ -11,6 +11,7 @@ public class BombDestruction : MonoBehaviour
         destructionTime += Time.deltaTime;
         if (destructionTime >= destructionWaitTime)
         {
+            gameObject.tag = "Weapon";
             Destroy(gameObject);
         }
     }

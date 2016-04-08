@@ -267,7 +267,7 @@ public class CharacterMovement : MonoBehaviour
         }
 
         // Se controla la frecuencia de disparos
-        if (lastShotTime >= shotWaitTime && Input.GetButtonDown("Fire1"))
+        if (lastShotTime >= shotWaitTime && CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
             lastShotTime = 0;
             Attack();
@@ -398,5 +398,4 @@ public class CharacterMovement : MonoBehaviour
         if (currentWeaponPrefab == shotPrefab) currentWeaponPrefab = bombPrefab;
         else currentWeaponPrefab = shotPrefab;
     }
-
 }

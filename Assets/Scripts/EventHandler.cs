@@ -5,7 +5,7 @@ public class EventHandler : MonoBehaviour
 {
     private AudioSource audio;
     public AudioClip spinClip, bombClip;
-    public AudioClip openDoorClip, stepClip, burstClip, enemyHurt3Clip, enemyDieClip;
+    public AudioClip openDoorClip, stepClip, burstClip, enemyHurt3Clip, enemyDieClip, injureClip;
     public GameObject doorCollider;
     void Awake()
     {
@@ -14,7 +14,7 @@ public class EventHandler : MonoBehaviour
 
     public void SpinSound()
     {
-        audio.PlayOneShot(spinClip,.08f);
+        audio.PlayOneShot(spinClip, .08f);
     }
     public void BombSound()
     {
@@ -43,6 +43,20 @@ public class EventHandler : MonoBehaviour
     public void EnemyDieSound()
     {
         audio.PlayOneShot(enemyDieClip, .8f);
+    }
+    public void InjureSound()
+    {
+        audio.PlayOneShot(injureClip, .5f);
+    }
+    public void ActivateBombExplotion()
+    {
+        GameObject bomb = gameObject.transform.parent.gameObject;
+        BoxCollider collider = bomb.GetComponent<BoxCollider>();
+        bomb.GetComponent<Rigidbody>().useGravity  =false;
+        //collider.size = new Vector2(.2f, .2f);
+        bomb.tag = "Weapon";
+
+        collider.isTrigger = true;
     }
 
 }

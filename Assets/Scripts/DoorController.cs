@@ -18,7 +18,7 @@ public class DoorController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Shot")
+        if (other.tag == "Weapon")
         {
             doorIsOpen = !doorIsOpen;
             if (doorIsOpen) anim.SetTrigger("OpenDoor");
