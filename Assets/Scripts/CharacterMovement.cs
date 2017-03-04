@@ -4,7 +4,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class CharacterMovement : MonoBehaviour
 {
     // Movement
-    public float maxSpeed = 2.0f;
+    public float maxSpeed = 1.8f;
     public bool facingRight = true;
     public float moveSpeedX;
     public float moveSpeedY;
@@ -22,7 +22,7 @@ public class CharacterMovement : MonoBehaviour
     // Jumps
     public int maxJumpCount = 5;
     public int jumpCount = 0;
-    public float jumpSpeed = 300;
+    public float jumpSpeed = 70;
 
     // Physics
     private Rigidbody rigidbody;
@@ -45,7 +45,9 @@ public class CharacterMovement : MonoBehaviour
     public float shotSpeed = 200;
     public float shotWaitTime = .5f;
     public float lastShotTime = 0;
+
     public bool shootingOnAir = false;
+
     private GameObject currentShotSpawn;
     public Rigidbody shotPrefab;
     public Rigidbody bombPrefab;
@@ -59,6 +61,8 @@ public class CharacterMovement : MonoBehaviour
     private const int aimingFrontConst = 3;
     private const int aimingDownFrontConst = 4;
     private const int aimingDownConst = 5;
+
+
     // Weapon spawns:
     GameObject canonIdleSpawn, canonAimingFrontSpawn, canonAimingUpFrontSpawn,
         canonAimingDownFrontSpawn, canonAimingUp;
@@ -80,32 +84,32 @@ public class CharacterMovement : MonoBehaviour
         rigidbody.sleepThreshold = 0.0f;
 
         // Para comprobar cuando se toca el suelo
-        groundCheck = GameObject.Find("/Character/GroundCheck").transform;
+        groundCheck = transform.Find("GroundCheck").transform;
 
         // Para comprobar si se toca un obstaculo
-        obstacleCheck = GameObject.Find("/Character/ObstacleCheck").transform;
+        obstacleCheck = transform.Find("ObstacleCheck").transform;
 
         // Objeto que manipula las animaciones
-        anim = GameObject.Find("/Character/CharacterSprite").GetComponent<Animator>();
+        anim = transform.Find("CharacterSprite").GetComponent<Animator>();
 
         currentWeaponPrefab = shotPrefab;
         // Inicializando posiciones de cañon
-        canonIdleSpawn = GameObject.Find("/Character/CanonAiming/CanonIdleSpawn");
-        canonAimingFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingFrontSpawn");
-        canonAimingUpFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingUpFrontSpawn");
-        canonAimingDownFrontSpawn = GameObject.Find("/Character/CanonAiming/CanonAimingDownFrontSpawn");
-        canonAimingUp = GameObject.Find("/Character/CanonAiming/CanonAimingUp");
+        canonIdleSpawn = transform.Find("CanonAiming/CanonIdleSpawn").gameObject;
+        canonAimingFrontSpawn = transform.Find("CanonAiming/CanonAimingFrontSpawn").gameObject;
+        canonAimingUpFrontSpawn = transform.Find("CanonAiming/CanonAimingUpFrontSpawn").gameObject;
+        canonAimingDownFrontSpawn = transform.Find("CanonAiming/CanonAimingDownFrontSpawn").gameObject;
+        canonAimingUp = transform.Find("CanonAiming/CanonAimingUp").gameObject;
 
-        canonAimingFrontSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingFrontSpawn");
-        canonAimingUpFrontSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingUpFrontSpawn");
-        canonAimingDownFrontSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingDownFrontSpawn");
-        canonAimingUpAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingUp");
-        canonAimingDownSpawnAir = GameObject.Find("/Character/CanonAimingAir/CanonAimingDownSpawn");
+        canonAimingFrontSpawnAir = transform.Find("CanonAimingAir/CanonAimingFrontSpawn").gameObject;
+        canonAimingUpFrontSpawnAir = transform.Find("CanonAimingAir/CanonAimingUpFrontSpawn").gameObject;
+        canonAimingDownFrontSpawnAir = transform.Find("CanonAimingAir/CanonAimingDownFrontSpawn").gameObject;
+        canonAimingUpAir = transform.Find("CanonAimingAir/CanonAimingUp").gameObject;
+        canonAimingDownSpawnAir = transform.Find("CanonAimingAir/CanonAimingDownSpawn").gameObject;
 
-        canonAimingFrontSpawnKnees = GameObject.Find("/Character/CanonAimingKnees/CanonAimingFrontSpawn");
-        canonAimingUpFrontSpawnKnees = GameObject.Find("/Character/CanonAimingKnees/CanonAimingUpFrontSpawn");
-        canonAimingDownFrontSpawnKnees = GameObject.Find("/Character/CanonAimingKnees/CanonAimingDownFrontSpawn");
-        canonAimingUpSpawnKnees = GameObject.Find("/Character/CanonAimingKnees/CanonAimingUpSpawn");
+        canonAimingFrontSpawnKnees = transform.Find("CanonAimingKnees/CanonAimingFrontSpawn").gameObject;
+        canonAimingUpFrontSpawnKnees = transform.Find("CanonAimingKnees/CanonAimingUpFrontSpawn").gameObject;
+        canonAimingDownFrontSpawnKnees = transform.Find("CanonAimingKnees/CanonAimingDownFrontSpawn").gameObject;
+        canonAimingUpSpawnKnees = transform.Find("CanonAimingKnees/CanonAimingUpSpawn").gameObject;
 
         // Cargando sonidos
         baseShotSound = Resources.Load("Sounds/BaseShot_clean", typeof(AudioClip)) as AudioClip;
@@ -272,12 +276,19 @@ public class CharacterMovement : MonoBehaviour
             lastShotTime = 0;
             Attack();
         }
+        // Turbo tiro woaaaaaaaaaaaw!!!!!
+        else if (lastShotTime >= shotWaitTime && CrossPlatformInputManager.GetButton("Fire2"))
+        {
+            lastShotTime = 0;
+            Attack();
+        }
         else { lastShotTime += Time.deltaTime; }
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            ChangeWeapon();
-        }
+        // Cambiar velocidad de turbo con rueda del mouse!
+        shotWaitTime += Input.mouseScrollDelta.y * .01f;
+        shotWaitTime = Mathf.Abs(shotWaitTime);
+
+        if (Input.GetKeyDown(KeyCode.C)) { ChangeWeapon(); }
 
     }
 

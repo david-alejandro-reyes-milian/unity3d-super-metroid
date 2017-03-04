@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 136c003d077e2c540800e59a01d68e18
-timeCreated: 1459714510
+timeCreated: 1460210613
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,13 @@ TextureImporter:
     21300004: Door_1_open_right_2
     21300006: Door_1_open_right_3
     21300008: Door_tunnel_grey
+    21300010: life_0
+    21300012: life_1
+    21300014: life_2
+    21300016: life_3
+    21300018: life_4
+    21300020: life_5
+    21300022: life_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -114,6 +121,83 @@ TextureImporter:
         - {x: -24, y: -32}
         - {x: 24, y: -32}
         - {x: 24, y: 32}
+    - name: life_0
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 506
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: life_1
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 507
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: life_2
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 507
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: life_3
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 506
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: life_4
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 503
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: life_5
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 502
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: life_6
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 502
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 

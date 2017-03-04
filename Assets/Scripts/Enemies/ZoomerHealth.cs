@@ -8,7 +8,13 @@ public class ZoomerHealth : MonoBehaviour
     public bool isAlive = true;
     Animator anim;
     ZoomerMovement movement;
-    void Awake() { anim = GetComponent<Animator>(); movement = GetComponent<ZoomerMovement>(); }
+    public GameObject[] bonusItems;
+    public GameObject randomBonusItem;
+    void Awake()
+    {
+        anim = GetComponent<Animator>(); movement = GetComponent<ZoomerMovement>();
+        randomBonusItem = bonusItems[Random.Range(0, bonusItems.Length)];
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -24,6 +30,8 @@ public class ZoomerHealth : MonoBehaviour
     {
         if (health <= 0)
         {
+            if (isAlive) GameObject.Instantiate(randomBonusItem, transform.position, transform.rotation);
+
             isAlive = false;
             // Se deshabilita el area de ataque para no afectar al caracter
             transform.Find("AttackArea").gameObject.SetActive(false);
@@ -35,6 +43,8 @@ public class ZoomerHealth : MonoBehaviour
             anim.SetTrigger("IsDead");
             // Se destruye el objeto pasado un tiempo
             Destroy(gameObject, .8f);
+
+
         }
     }
 }
