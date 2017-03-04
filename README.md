@@ -10,7 +10,7 @@ Some demo videos available at my facebook page. [JUMIT LABS](https://www.faceboo
 
 ## Usage
 
-1. Clone the project.
+Clone the project.
 ```console
 $ git clone git@github.com:david-alejandro-reyes-milian/unity3d-super-metroid.git
 ```
