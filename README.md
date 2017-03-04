@@ -14,7 +14,7 @@ Some demo videos available at my facebook page. [JUMIT LABS](https://www.faceboo
 ```console
 $ git clone git@github.com:david-alejandro-reyes-milian/unity3d-super-metroid.git
 ```
-2. Run it with Unity3D-v-5.4.0.f3
+Run it with Unity3D-v-5.4.0.f3
 
 ## Contributing
 
