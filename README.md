@@ -1,14 +1,18 @@
 # Unity3D Super Metroid
 
-Unity3D Super Metroid is an open-source Unity3D implementation of the SNES Super Metroid game, one of my favorite games. The project actualy contains a 
+Unity3D Super Metroid is an open-source Unity3D implementation of the SNES Super Metroid game, one of my favorite games.
+
+## Status
+The project contains a fully functional scene, the first scene in the game. All movements of
+Samus are implemented, sounds included. Sprites used were carefully extracted from the original game and from some assets shared in the community.
 
 ## Usage
 
 1. Clone the project.
 ```console
-$ git clone git@github.com:david-alejandro-reyes-milian/black-n-white.git
+$ git clone git@github.com:david-alejandro-reyes-milian/unity3d-super-metroid.git
 ```
-2. Build it with Unity3D
+2. Run it with Unity3D-v-5.4.0.f3
 
 ## Contributing
 
@@ -19,5 +23,5 @@ $ git clone git@github.com:david-alejandro-reyes-milian/black-n-white.git
 5. Submit a pull request :D
 
 ## Credits
-
-Just me ;)
+The community for the assets.
+And me for the work :)
